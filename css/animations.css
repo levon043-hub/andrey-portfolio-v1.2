@@ -1,0 +1,395 @@
+/* =============================================
+   KEYFRAMES
+   ============================================= */
+
+/* Появление снизу */
+@keyframes fadeInUp {
+  from {
+    opacity:   0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity:   1;
+    transform: translateY(0);
+  }
+}
+
+/* Появление сверху */
+@keyframes fadeInDown {
+  from {
+    opacity:   0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity:   1;
+    transform: translateY(0);
+  }
+}
+
+/* Появление слева */
+@keyframes fadeInLeft {
+  from {
+    opacity:   0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity:   1;
+    transform: translateX(0);
+  }
+}
+
+/* Появление справа */
+@keyframes fadeInRight {
+  from {
+    opacity:   0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity:   1;
+    transform: translateX(0);
+  }
+}
+
+/* Масштабирование */
+@keyframes scaleIn {
+  from {
+    opacity:   0;
+    transform: scale(0.88);
+  }
+  to {
+    opacity:   1;
+    transform: scale(1);
+  }
+}
+
+/* Плавное появление */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Пульс (акцентные элементы) */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+
+/* Плавающий элемент (hero-декорации) */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-18px); }
+}
+
+/* Вращение (иконки / лоадер) */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Мигание курсора */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* Движение градиента (hero-фон) */
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Счётчик цифр (анимация числа вверх) */
+@keyframes countUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+/* Раскрытие линии слева направо */
+@keyframes lineExpand {
+  from { transform: scaleX(0); transform-origin: left; }
+  to   { transform: scaleX(1); transform-origin: left; }
+}
+
+/* Тряска (ошибки в форме) */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%       { transform: translateX(-8px); }
+  40%       { transform: translateX(8px); }
+  60%       { transform: translateX(-5px); }
+  80%       { transform: translateX(5px); }
+}
+
+/* =============================================
+   SCROLL-АНИМАЦИИ (класс .reveal)
+   Управляются через IntersectionObserver в main.js
+   ============================================= */
+
+/* Базовое скрытое состояние */
+.reveal {
+  opacity:    0;
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Варианты направления */
+.reveal--up    { transform: translateY(50px); }
+.reveal--down  { transform: translateY(-30px); }
+.reveal--left  { transform: translateX(-50px); }
+.reveal--right { transform: translateX(50px); }
+.reveal--scale { transform: scale(0.88); }
+
+/* Видимое состояние */
+.reveal.is-visible {
+  opacity:   1;
+  transform: none;
+}
+
+/* Задержки для stagger-эффекта карточек */
+.reveal--delay-1 { transition-delay: 0.1s; }
+.reveal--delay-2 { transition-delay: 0.2s; }
+.reveal--delay-3 { transition-delay: 0.3s; }
+.reveal--delay-4 { transition-delay: 0.4s; }
+.reveal--delay-5 { transition-delay: 0.5s; }
+.reveal--delay-6 { transition-delay: 0.6s; }
+
+/* =============================================
+   KEYFRAMES — HERO
+   ============================================= */
+
+/* Плавное появление снизу (hero-элементы) */
+@keyframes fadeUp {
+  from {
+    opacity:   0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity:   1;
+    transform: translateY(0);
+  }
+}
+
+/* Плавное появление (hero visual) */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Парение mockup */
+@keyframes heroFloat {
+  0%, 100% {
+    transform: perspective(1200px) rotateY(-10deg) rotateX(3deg) translateY(0px);
+  }
+  50% {
+    transform: perspective(1200px) rotateY(-10deg) rotateX(3deg) translateY(-16px);
+  }
+}
+
+/* Анимация линии скролла */
+@keyframes scrollLine {
+  0% {
+    transform:        scaleY(0);
+    transform-origin: top;
+    opacity:          1;
+  }
+  50% {
+    transform:        scaleY(1);
+    transform-origin: top;
+    opacity:          1;
+  }
+  100% {
+    transform:        scaleY(0);
+    transform-origin: bottom;
+    opacity:          0;
+  }
+}
+
+/* =============================================
+   HERO — анимации появления при загрузке
+   ============================================= */
+
+/* Навигация */
+.navbar {
+  animation: fadeInDown 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+/* Контент hero */
+.hero__label {
+  animation: fadeUp 0.6s 0.1s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.hero__title {
+  animation: fadeUp 0.6s 0.2s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.hero__subtitle {
+  animation: fadeUp 0.6s 0.3s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.hero__actions {
+  animation: fadeUp 0.6s 0.4s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.hero__stats {
+  animation: fadeUp 0.6s 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.hero__visual {
+  animation: fadeIn 0.8s 0.3s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+/* Плавающие декорации (если понадобятся) */
+.hero__deco-1 {
+  animation: float 6s ease-in-out infinite;
+}
+
+.hero__deco-2 {
+  animation: float 8s ease-in-out 1s infinite;
+}
+
+.hero__deco-3 {
+  animation: float 7s ease-in-out 2s infinite;
+}
+
+/* =============================================
+   ПОРТФОЛИО — hover и переход
+   ============================================= */
+.portfolio__card .card__overlay {
+  transition: opacity var(--transition);
+}
+
+.portfolio__card:hover .card__overlay {
+  opacity: 1;
+}
+
+/* =============================================
+   СПИННЕР ЗАГРУЗКИ
+   ============================================= */
+.spinner {
+  display:       inline-block;
+  width:         20px;
+  height:        20px;
+  border:        2px solid rgba(255, 255, 255, 0.2);
+  border-top:    2px solid #fff;
+  border-radius: 50%;
+  animation:     spin 0.8s linear infinite;
+}
+
+/* =============================================
+   ЖИВОЙ ГРАДИЕНТНЫЙ ФОН
+   ============================================= */
+@keyframes bgShift {
+  0%   { background-position: 0%   50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0%   50%; }
+}
+
+@keyframes glowMove {
+  from { transform: translate(0,      0);      }
+  to   { transform: translate(100px, -80px);   }
+}
+
+/* =============================================
+   ГЛИТЧ-ЭФФЕКТ ЗАГОЛОВКА
+   ============================================= */
+.hero__title {
+  position: relative;
+}
+
+.hero__title::before,
+.hero__title::after {
+  content:        attr(data-text);
+  position:       absolute;
+  inset:          0;
+  opacity:        0;
+  pointer-events: none;
+  font-size:      inherit;
+  font-weight:    inherit;
+  line-height:    inherit;
+  white-space:    pre-wrap;
+}
+
+.hero__title::before {
+  color:     #ff0040;
+  clip-path: polygon(0 20%, 100% 20%, 100% 40%, 0 40%);
+}
+
+.hero__title::after {
+  color:     #00e5ff;
+  clip-path: polygon(0 60%, 100% 60%, 100% 80%, 0 80%);
+}
+
+.hero__title.glitch::before {
+  opacity:   0.8;
+  animation: glitchTop 0.3s steps(2) forwards;
+}
+
+.hero__title.glitch::after {
+  opacity:   0.8;
+  animation: glitchBot 0.3s steps(2) forwards;
+}
+
+@keyframes glitchTop {
+  0%   { transform: translate(-2px, 0); }
+  33%  { transform: translate( 2px, 0); }
+  66%  { transform: translate(-1px, 0); }
+  100% { transform: translate(0,    0); opacity: 0; }
+}
+
+@keyframes glitchBot {
+  0%   { transform: translate( 2px, 0); }
+  33%  { transform: translate(-2px, 0); }
+  66%  { transform: translate( 1px, 0); }
+  100% { transform: translate(0,    0); opacity: 0; }
+}
+
+/* =============================================
+   PREFERS-REDUCED-MOTION
+   Отключаем все анимации для пользователей,
+   предпочитающих меньше движения
+   ============================================= */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration:   0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration:  0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal,
+  .reveal--up,
+  .reveal--down,
+  .reveal--left,
+  .reveal--right,
+  .reveal--scale {
+    opacity:   1 !important;
+    transform: none !important;
+  }
+
+  .cursor,
+  .cursor-follower {
+    display: none !important;
+  }
+
+  body {
+    opacity:          1 !important;
+    transition:       none !important;
+    animation:        none !important;
+    background:       #0D0D0D !important;
+    background-size:  unset !important;
+  }
+
+  body::after {
+    animation: none !important;
+  }
+
+  .hero__title.glitch::before,
+  .hero__title.glitch::after {
+    display: none !important;
+  }
+}

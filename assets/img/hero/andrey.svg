@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="600" viewBox="0 0 480 600">
+  <!-- Background -->
+  <rect width="480" height="600" fill="#1A1A1A"/>
+  <!-- Subtle gradient overlay -->
+  <radialGradient id="bg" cx="50%" cy="30%" r="70%">
+    <stop offset="0%" stop-color="#4F8EF7" stop-opacity="0.12"/>
+    <stop offset="100%" stop-color="#1A1A1A" stop-opacity="0"/>
+  </radialGradient>
+  <rect width="480" height="600" fill="url(#bg)"/>
+  <!-- Avatar circle -->
+  <circle cx="240" cy="220" r="110" fill="#262626"/>
+  <circle cx="240" cy="220" r="108" fill="none" stroke="#4F8EF7" stroke-width="1.5" stroke-opacity="0.3"/>
+  <!-- Initial letter А -->
+  <text x="240" y="252" text-anchor="middle"
+        font-family="'Space Grotesk', sans-serif"
+        font-size="110" font-weight="700"
+        fill="#4F8EF7" fill-opacity="0.9">А</text>
+  <!-- Bottom info area -->
+  <rect x="60" y="380" width="360" height="1" fill="#2a2a2a"/>
+  <text x="240" y="420" text-anchor="middle"
+        font-family="'Inter', sans-serif"
+        font-size="18" font-weight="600" fill="#ffffff">Андрей</text>
+  <text x="240" y="450" text-anchor="middle"
+        font-family="'Inter', sans-serif"
+        font-size="14" fill="#4F8EF7">Веб-дизайнер</text>
+  <!-- Decorative dots -->
+  <circle cx="80"  cy="540" r="4" fill="#4F8EF7" fill-opacity="0.4"/>
+  <circle cx="100" cy="540" r="4" fill="#4F8EF7" fill-opacity="0.25"/>
+  <circle cx="120" cy="540" r="4" fill="#4F8EF7" fill-opacity="0.15"/>
+  <circle cx="400" cy="540" r="4" fill="#4F8EF7" fill-opacity="0.4"/>
+  <circle cx="380" cy="540" r="4" fill="#4F8EF7" fill-opacity="0.25"/>
+  <circle cx="360" cy="540" r="4" fill="#4F8EF7" fill-opacity="0.15"/>
+</svg>

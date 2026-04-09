@@ -1,0 +1,693 @@
+/* =============================================
+   RESPONSIVE — Mobile-first
+   Брейкпоинты: 768px | 1024px | 1440px
+   ============================================= */
+
+/* =============================================
+   БАЗОВЫЕ МОБИЛЬНЫЕ СТИЛИ (< 768px)
+   ============================================= */
+
+/* Навигация: показываем бургер, скрываем ссылки */
+.navbar__burger {
+  display: flex;
+}
+
+.navbar__links {
+  display:        flex;
+  flex-direction: column;
+  position:       fixed;
+  top:            0;
+  right:          0;
+  bottom:         0;
+  width:          280px;
+  background:     var(--color-bg-secondary);
+  border-left:    1px solid var(--color-border);
+  padding:        90px 32px 32px;
+  gap:            8px;
+  transform:      translateX(100%);
+  transition:     transform var(--transition);
+  z-index:        999;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.navbar__links.open {
+  transform: translateX(0);
+}
+
+.navbar__links a {
+  font-size:     16px;
+  padding:       12px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.navbar__links li:last-child a {
+  border-bottom: none;
+  margin-top:    8px;
+  text-align:    center;
+}
+
+/* Оверлей при открытом меню */
+.menu-overlay {
+  display:    none;
+  position:   fixed;
+  inset:      0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index:    998;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.menu-overlay.active {
+  display: block;
+}
+
+/* Секции на мобиле */
+section {
+  padding: 60px 0;
+}
+
+.section__header {
+  margin-bottom: 40px;
+}
+
+/* ── HERO на мобиле ───────────────────────────── */
+.hero {
+  padding:     100px 0 80px;
+  min-height:  auto;
+}
+
+.hero .container {
+  grid-template-columns: 1fr;
+  gap:                   40px;
+}
+
+.hero__content {
+  max-width: 100%;
+  text-align: center;
+}
+
+.hero__subtitle {
+  font-size: 16px;
+  max-width: 100%;
+  margin-left:  auto;
+  margin-right: auto;
+}
+
+.hero__actions {
+  justify-content: center;
+}
+
+.hero__stats {
+  justify-content: center;
+  gap: 24px;
+}
+
+.hero__stat-num {
+  font-size: 26px;
+}
+
+.hero__visual {
+  order: -1; /* visual выше текста на мобиле */
+}
+
+.hero__mockup-wrap {
+  max-width: 420px;
+  margin:    0 auto;
+}
+
+.hero__mockup {
+  transform: none;
+  animation: none;
+}
+
+.hero__scroll-hint {
+  display: none; /* убираем на мобиле */
+}
+
+/* ── TRUST на мобиле ─────────────────────────── */
+.trust__stats {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.trust__stat-num {
+  font-size: 40px;
+}
+
+.trust__stat-plus {
+  font-size: 24px;
+}
+
+.case-study {
+  padding: 28px 20px;
+}
+
+.case-study__grid {
+  grid-template-columns: 1fr;
+  gap:                   32px;
+}
+
+.case-study__visual {
+  order: -1;
+}
+
+.testimonial {
+  padding: 28px 20px;
+}
+
+.testimonial__text {
+  font-size: 17px;
+}
+
+.testimonial__stars {
+  display: none;
+}
+
+/* ── CONTACTS на мобиле ───────────────────────── */
+.contacts__inner {
+  grid-template-columns: 1fr;
+  gap:                   48px;
+}
+
+.contacts__cta {
+  order: -1;
+}
+
+.contacts__big-cta {
+  width:  220px;
+  height: 220px;
+}
+
+/* ── FOOTER на мобиле ─────────────────────────── */
+.footer__inner {
+  flex-direction: column;
+  text-align:     center;
+  gap:            12px;
+}
+
+/* ── PORTFOLIO на мобиле ──────────────────────── */
+.portfolio__grid {
+  grid-template-columns: 1fr;
+}
+
+.portfolio-card--featured {
+  grid-column: span 1;
+}
+
+.portfolio-card__preview {
+  height: 220px;
+}
+
+.portfolio-card--featured .portfolio-card__preview {
+  height: 260px;
+}
+
+.portfolio-card:hover .portfolio-card__img {
+  transform: translateY(calc(-100% + 220px));
+}
+
+.portfolio-card--featured:hover .portfolio-card__img {
+  transform: translateY(calc(-100% + 260px));
+}
+
+/* ── ABOUT на мобиле ──────────────────────────── */
+.about__grid {
+  grid-template-columns: 1fr;
+  gap:                   40px;
+}
+
+.about__photo {
+  aspect-ratio: 3 / 2;
+  max-width:    360px;
+  margin:       0 auto;
+}
+
+/* ── SERVICES на мобиле ───────────────────────── */
+.services__grid {
+  grid-template-columns: 1fr;
+}
+
+.service-card--featured {
+  grid-column:           span 1;
+  grid-template-columns: 1fr;
+}
+
+.work-process__steps {
+  gap: 8px;
+}
+
+.work-step__arrow {
+  transform: rotate(90deg);
+}
+
+/* Footer */
+.footer .container {
+  flex-direction: column;
+  text-align:     center;
+}
+
+/* =============================================
+   ПЛАНШЕТ — от 768px
+   ============================================= */
+@media (min-width: 768px) {
+
+  /* Навигация: бургер скрыт, показываем ссылки */
+  .navbar__burger {
+    display: none;
+  }
+
+  .navbar__links {
+    display:        flex;
+    flex-direction: row;
+    position:       static;
+    width:          auto;
+    background:     transparent;
+    border:         none;
+    padding:        0;
+    gap:            28px;
+    transform:      none;
+  }
+
+  .navbar__links a {
+    font-size:     14px;
+    padding:       0;
+    border-bottom: none;
+  }
+
+  /* Секции — чуть больше пространства */
+  section {
+    padding: 80px 0;
+  }
+
+  .section__header {
+    margin-bottom: 52px;
+  }
+
+  /* ── TRUST на планшете ──────────────────────── */
+  .trust__stats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .trust__stat-num {
+    font-size: 48px;
+  }
+
+  .case-study__grid {
+    grid-template-columns: 1fr 1fr;
+    gap:                   40px;
+  }
+
+  .case-study__visual {
+    order: 0;
+  }
+
+  .testimonial__stars {
+    display: block;
+  }
+
+  /* ── CONTACTS на планшете ────────────────────── */
+  .contacts__inner {
+    grid-template-columns: 1fr 1fr;
+    gap:                   60px;
+  }
+
+  .contacts__cta {
+    order: 0;
+  }
+
+  .contacts__big-cta {
+    width:  260px;
+    height: 260px;
+  }
+
+  /* ── FOOTER на планшете ──────────────────────── */
+  .footer__inner {
+    flex-direction: row;
+    text-align:     left;
+  }
+
+  /* ── PORTFOLIO на планшете ──────────────────── */
+  .portfolio__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .portfolio-card--featured {
+    grid-column: span 2;
+  }
+
+  .portfolio-card__preview {
+    height: 260px;
+  }
+
+  .portfolio-card--featured .portfolio-card__preview {
+    height: 340px;
+  }
+
+  .portfolio-card:hover .portfolio-card__img {
+    transform: translateY(calc(-100% + 260px));
+  }
+
+  .portfolio-card--featured:hover .portfolio-card__img {
+    transform: translateY(calc(-100% + 340px));
+  }
+
+  /* ── ABOUT на планшете ──────────────────────── */
+  .about__grid {
+    grid-template-columns: 1fr 1.2fr;
+    gap:                   60px;
+  }
+
+  .about__photo {
+    aspect-ratio: 4 / 5;
+    max-width:    none;
+  }
+
+  /* ── SERVICES на планшете ────────────────────── */
+  .services__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .service-card--featured {
+    grid-column:           1 / -1;
+    grid-template-columns: 1fr;
+  }
+
+  .work-step__arrow {
+    transform: none;
+  }
+
+  /* ── HERO на планшете ───────────────────────── */
+  .hero {
+    padding:    120px 0 80px;
+    min-height: 100vh;
+  }
+
+  .hero .container {
+    grid-template-columns: 1fr 1fr;
+    gap:                   40px;
+  }
+
+  .hero__content {
+    text-align: left;
+  }
+
+  .hero__actions {
+    justify-content: flex-start;
+  }
+
+  .hero__stats {
+    justify-content: flex-start;
+  }
+
+  .hero__visual {
+    order: 0;
+  }
+
+  .hero__mockup {
+    transform: perspective(1200px) rotateY(-10deg) rotateX(3deg);
+    animation: heroFloat 4s ease-in-out infinite;
+  }
+
+  .hero__scroll-hint {
+    display: flex;
+  }
+
+  /* Footer */
+  .footer .container {
+    flex-direction: row;
+    text-align:     left;
+  }
+}
+
+/* =============================================
+   НОУТБУК — от 1024px
+   ============================================= */
+@media (min-width: 1024px) {
+
+  section {
+    padding: var(--section-padding);
+  }
+
+  .section__header {
+    margin-bottom: 64px;
+  }
+
+  .navbar__links {
+    gap: 36px;
+  }
+
+  /* ── SERVICES на десктопе ────────────────────── */
+  .services__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .service-card--featured {
+    grid-column:           1 / -1;
+    grid-template-columns: 1fr 1fr;
+  }
+
+}
+
+/* =============================================
+   ШИРОКИЙ ЭКРАН — от 1440px
+   ============================================= */
+@media (min-width: 1440px) {
+
+  :root {
+    --container-width: 1320px;
+    --section-padding: 120px 0;
+  }
+
+  h1 {
+    font-size: 80px;
+  }
+
+  h2 {
+    font-size: 52px;
+  }
+
+  p {
+    font-size: 17px;
+  }
+
+  .navbar__links {
+    gap: 40px;
+  }
+
+}
+
+/* =============================================
+   ВСПОМОГАТЕЛЬНЫЕ КЛАССЫ ДЛЯ АДАПТИВА
+   ============================================= */
+
+/* Скрыть на мобиле */
+.hide-mobile {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .hide-mobile {
+    display: block;
+  }
+
+  /* Скрыть на планшете и выше */
+  .hide-tablet {
+    display: none;
+  }
+}
+
+/* Только для мобиле */
+.mobile-only {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .mobile-only {
+    display: none;
+  }
+}
+
+/* =============================================
+   TOUCH-УСТРОЙСТВА: отключаем hover-transform
+   ============================================= */
+@media (hover: none) {
+  .card:hover {
+    transform: none;
+  }
+
+  .btn-primary:hover,
+  .btn-outline:hover {
+    transform: none;
+  }
+
+  .navbar__cta:hover {
+    transform: none !important;
+  }
+}
+
+/* =============================================
+   PREFERS-REDUCED-MOTION
+   ============================================= */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration:        0.01ms !important;
+    animation-iteration-count: 1      !important;
+    transition-duration:       0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity:   1;
+    transform: none;
+  }
+
+  .contacts__big-cta {
+    animation: none;
+  }
+
+  .hero__mockup {
+    animation: none;
+    transform: perspective(1200px) rotateY(-10deg) rotateX(3deg);
+  }
+}
+
+/* =============================================
+   MAX-WIDTH: ПЛАНШЕТ ≤ 1024px
+   ============================================= */
+@media (max-width: 1024px) {
+
+  /* Hero: однаколонка, центровка */
+  .hero .container {
+    grid-template-columns: 1fr;
+    text-align:            center;
+  }
+
+  .hero__visual        { display: none; }
+  .hero__actions       { justify-content: center; }
+  .hero__stats         { justify-content: center; }
+  .hero__subtitle      { margin-left: auto; margin-right: auto; }
+  .hero__scroll-hint   { display: none; }
+
+  /* About */
+  .about__grid         { grid-template-columns: 1fr; }
+  .about__visual       { max-width: 360px; margin: 0 auto; }
+
+  /* Services */
+  .services__grid      { grid-template-columns: 1fr; }
+  .service-card--featured {
+    grid-column:           span 1;
+    grid-template-columns: 1fr;
+    gap:                   24px;
+  }
+
+  /* Portfolio */
+  .portfolio__grid              { grid-template-columns: repeat(2, 1fr); }
+  .portfolio-card--featured     { grid-column: span 2; }
+
+  /* Trust */
+  .trust__stats         { grid-template-columns: repeat(2, 1fr); }
+  .case-study__grid     { grid-template-columns: 1fr; gap: 32px; }
+  .case-study__visual   { order: -1; }
+
+  /* Contacts */
+  .contacts__inner      { grid-template-columns: 1fr; gap: 48px; }
+  .contacts__cta        { order: -1; }
+  .contacts__big-cta    { width: 200px; height: 200px; font-size: 18px; }
+}
+
+/* =============================================
+   MAX-WIDTH: МОБИЛЬНЫЙ ≤ 768px
+   ============================================= */
+@media (max-width: 768px) {
+
+  :root { --section-padding: 60px 0; }
+
+  /* Portfolio: горизонтальный sticky → обычный свайп */
+  .portfolio-scroll-wrapper     { height: auto !important; }
+
+  .portfolio {
+    position:   static;
+    height:     auto;
+    overflow:   visible;
+    padding:    var(--section-padding);
+  }
+
+  .portfolio__horizontal {
+    overflow-x:                 auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .portfolio__track {
+    transform: none !important;
+    padding:   10px 16px;
+  }
+
+  .portfolio__track .portfolio-card         { width: 280px; }
+  .portfolio__track .portfolio-card--featured { width: 300px; }
+
+  .portfolio__progress-bar      { display: none; }
+
+  /* Карточки в мобильном треке */
+  .portfolio__grid              { grid-template-columns: 1fr; }
+  .portfolio-card--featured     { grid-column: span 1; }
+  .portfolio-card__preview      { height: 220px; }
+  .portfolio-card--featured .portfolio-card__preview { height: 260px; }
+  .portfolio-card:hover .portfolio-card__img {
+    transform: translateY(calc(-100% + 220px));
+  }
+  .portfolio-card--featured:hover .portfolio-card__img {
+    transform: translateY(calc(-100% + 260px));
+  }
+
+  /* Trust */
+  .trust__stats       { grid-template-columns: repeat(2, 1fr); }
+  .trust__stat-num    { font-size: 40px; }
+  .trust__stat-plus   { font-size: 22px; }
+  .case-study         { padding: 28px 20px; }
+  .testimonial        { padding: 28px 20px; }
+  .testimonial__text  { font-size: 17px; }
+  .testimonial__stars { display: none; }
+
+  /* Process: горизонтальный скролл */
+  .work-process__steps {
+    overflow-x:       auto;
+    justify-content:  flex-start;
+    padding-bottom:   12px;
+    flex-wrap:        nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+  .work-step__arrow { transform: none; }
+
+  /* Contacts */
+  .contacts__big-cta { width: 160px; height: 160px; font-size: 15px; }
+
+  /* Footer */
+  .footer__inner {
+    flex-direction: column;
+    text-align:     center;
+    gap:            12px;
+  }
+}
+
+/* =============================================
+   MAX-WIDTH: МАЛЕНЬКИЙ МОБИЛЬНЫЙ ≤ 480px
+   ============================================= */
+@media (max-width: 480px) {
+
+  .hero__actions    { flex-direction: column; align-items: stretch; }
+  .btn              { justify-content: center; }
+
+  .trust__stats     { grid-template-columns: 1fr; }
+
+  .contacts__big-cta { width: 140px; height: 140px; font-size: 14px; }
+
+  .case-study__grid { gap: 24px; }
+
+  .portfolio__filter { gap: 6px; }
+  .filter-btn        { padding: 8px 14px; font-size: 13px; }
+}
