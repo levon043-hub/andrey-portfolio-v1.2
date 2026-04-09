@@ -59,17 +59,19 @@ function initHeroShader() {
       float t        = time * 0.05;
       float lineWidth = 0.0025;
 
-      /* Accumulate RGB ring channels */
-      vec3 raw = vec3(0.0);
-      for (int j = 0; j < 3; j++) {
-        for (int i = 0; i < 5; i++) {
-          raw[j] += lineWidth * float(i * i) / abs(
-            fract(t - 0.01 * float(j) + float(i) * 0.012) * 5.0
-            - length(uv)
-            + mod(uv.x + uv.y, 0.2)
-          );
-        }
+      /* Accumulate ring channels — loops unrolled to avoid
+         dynamic vec3 indexing (GLSL X4000 warning)           */
+      float r0 = 0.0, r1 = 0.0, r2 = 0.0;
+      float uvLen = length(uv);
+      float uvMod = mod(uv.x + uv.y, 0.2);
+      for (int i = 0; i < 5; i++) {
+        float fi = float(i);
+        float w  = lineWidth * fi * fi;
+        r0 += w / abs(fract(t               + fi * 0.012) * 5.0 - uvLen + uvMod);
+        r1 += w / abs(fract(t - 0.01        + fi * 0.012) * 5.0 - uvLen + uvMod);
+        r2 += w / abs(fract(t - 0.02        + fi * 0.012) * 5.0 - uvLen + uvMod);
       }
+      vec3 raw = vec3(r0, r1, r2);
 
       /* Remap channels toward accent palette:
          raw[0] → purple / violet  (#7C6CF7-ish)
