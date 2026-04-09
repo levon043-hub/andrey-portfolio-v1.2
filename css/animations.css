@@ -218,9 +218,8 @@
   animation: fadeUp 0.6s 0.1s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
-.hero__title {
-  animation: fadeUp 0.6s 0.2s cubic-bezier(0.4, 0, 0.2, 1) both;
-}
+/* Split-text handles hero title — no whole-h1 fadeUp needed */
+/* .hero__title { animation: fadeUp 0.6s 0.2s ... } */
 
 .hero__subtitle {
   animation: fadeUp 0.6s 0.3s cubic-bezier(0.4, 0, 0.2, 1) both;
@@ -236,6 +235,59 @@
 
 .hero__visual {
   animation: fadeIn 0.8s 0.3s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+/* =============================================
+   v1.2 — SPLIT-TEXT REVEAL
+   ============================================= */
+
+/* Each line wraps in .split-line (overflow hidden)   */
+/* and .split-line__inner which slides up from below  */
+.split-line {
+  display:  block;
+  overflow: hidden;
+  /* match h1 line-height so lines don't clip */
+  line-height: 1.15;
+}
+
+.split-line__inner {
+  display:   block;
+  transform: translateY(115%);
+  opacity:   0;
+}
+
+/* Triggered by JS adding .splits-ready to the h1 */
+.hero__title.splits-ready .split-line:nth-child(1) .split-line__inner {
+  animation: splitReveal 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+}
+.hero__title.splits-ready .split-line:nth-child(2) .split-line__inner {
+  animation: splitReveal 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+}
+.hero__title.splits-ready .split-line:nth-child(3) .split-line__inner {
+  animation: splitReveal 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.45s forwards;
+}
+
+@keyframes splitReveal {
+  to {
+    transform: translateY(0);
+    opacity:   1;
+  }
+}
+
+/* =============================================
+   v1.2 — ACCENT GRADIENT FLOW
+   ============================================= */
+@keyframes accentGradientFlow {
+  0%   { background-position: 0%   50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0%   50%; }
+}
+
+/* =============================================
+   v1.2 — MAGNETIC BUTTON: smooth spring-back
+   ============================================= */
+.btn {
+  will-change: transform;
 }
 
 /* Плавающие декорации (если понадобятся) */

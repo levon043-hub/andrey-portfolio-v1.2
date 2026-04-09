@@ -522,6 +522,51 @@ const initCursor = () => {
    ИНИЦИАЛИЗАЦИЯ
    ============================================= */
 
+/* =============================================
+   v1.2 — SPLIT-TEXT REVEAL (hero title)
+   ============================================= */
+
+const initSplitText = () => {
+  const title = document.querySelector('.hero__title');
+  if (!title) return;
+
+  // Trigger the CSS animation by adding class after a short delay
+  // (body fade-in takes ~400 ms, start after that)
+  setTimeout(() => {
+    title.classList.add('splits-ready');
+  }, 350);
+};
+
+/* =============================================
+   v1.2 — MAGNETIC BUTTONS
+   ============================================= */
+
+const initMagneticButtons = () => {
+  // Skip on touch devices
+  if (window.matchMedia('(hover: none)').matches) return;
+
+  const btns = document.querySelectorAll('.btn');
+
+  btns.forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+      const rect = btn.getBoundingClientRect();
+      const x    = (e.clientX - rect.left - rect.width  / 2) * 0.28;
+      const y    = (e.clientY - rect.top  - rect.height / 2) * 0.28;
+      btn.style.transition = 'transform 0.12s ease';
+      btn.style.transform  = `translate(${x}px, ${y}px)`;
+    });
+
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transition = 'transform 0.45s cubic-bezier(0.4, 0, 0.2, 1)';
+      btn.style.transform  = '';
+    });
+  });
+};
+
+/* =============================================
+   ИНИЦИАЛИЗАЦИЯ
+   ============================================= */
+
 ready(() => {
   initNavbar();
   initReveal();
@@ -532,8 +577,10 @@ ready(() => {
   initHorizontalScroll();
   initCursor();
   initGlitch();
+  initSplitText();
+  initMagneticButtons();
 
-  console.log('%c Andrey Portfolio — initialized ✓', 'color: #4F8EF7; font-weight: bold;');
+  console.log('%c Andrey Portfolio v1.2 — initialized ✓', 'color: #4F8EF7; font-weight: bold;');
 });
 
 /* Плавное появление страницы после загрузки */
