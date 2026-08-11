@@ -1,1138 +1,172 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-  <!-- Yandex.Metrika counter -->
-  <script type="text/javascript">
-    (function(m,e,t,r,i,k,a){
-      m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-      m[i].l=1*new Date();
-      for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-      k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=108456050', 'ym');
-    ym(108456050, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
-  </script>
-  <noscript><div><img src="https://mc.yandex.ru/watch/108456050" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-  <!-- /Yandex.Metrika counter -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Андрей создаёт лендинги под ключ: от структуры и дизайна до вёрстки и запуска." />
+    <meta name="theme-color" content="#050914" />
+    <meta property="og:title" content="Андрей. — лендинги под ключ" />
+    <meta property="og:description" content="Дизайн, вёрстка и запуск сайта у одного исполнителя." />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    <title>Андрей. — лендинги под ключ</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Перейти к содержанию</a>
 
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Веб-дизайнер Андрей — создаю лендинги и сайты под ключ для малого бизнеса и стартапов. Figma + HTML/CSS. Срок от 5 дней. От 10 000 ₽." />
-  <meta name="keywords" content="веб-дизайнер, лендинг под ключ, создание сайтов, UI UX дизайн, HTML CSS, Figma, дизайнер фрилансер" />
-  <meta name="theme-color" content="#0D0D0D" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://andreydesign.ru/" />
-
-  <!-- Open Graph -->
-  <meta property="og:title"       content="Андрей — Веб-дизайнер. Лендинги под ключ" />
-  <meta property="og:description" content="Лендинги и сайты под ключ. Дизайн + вёрстка = готовый продукт." />
-  <meta property="og:type"        content="website" />
-  <meta property="og:image"       content="https://andreydesign.ru/assets/img/hero/andrey.jpg" />
-  <meta property="og:url"         content="https://andreydesign.ru/" />
-  <meta property="og:locale"      content="ru_RU" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card"        content="summary_large_image" />
-  <meta name="twitter:title"       content="Андрей — Веб-дизайнер" />
-  <meta name="twitter:image"       content="https://andreydesign.ru/assets/img/hero/andrey.jpg" />
-  <meta name="twitter:description" content="Лендинги под ключ от 5 дней и 10 000 ₽" />
-
-  <title>Андрей — Веб-дизайнер. Лендинги под ключ</title>
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
-  <link rel="apple-touch-icon" href="assets/img/hero/andrey.jpg" />
-
-  <!-- Preload: первый слайд hero -->
-  <link rel="preload" as="image" href="assets/img/portfolio/work6.jpg" />
-
-  <!-- Google Fonts: Space Grotesk + Inter -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&display=swap"
-    rel="stylesheet"
-  />
-
-  <!-- Стили -->
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/animations.css" />
-  <link rel="stylesheet" href="css/responsive.css" />
-</head>
-<body>
-
-  <!-- Mesh Gradient Background (Hero + About) -->
-  <canvas class="mesh-gradient" id="meshGradientCanvas" aria-hidden="true"></canvas>
-
-  <!-- Кастомный курсор -->
-  <div class="cursor" id="cursor" aria-hidden="true"></div>
-  <div class="cursor-follower" id="cursorFollower" aria-hidden="true"></div>
-
-  <!-- ============================================
-       НАВИГАЦИЯ
-       ============================================ -->
-  <nav class="navbar" id="navbar" role="navigation" aria-label="Главная навигация">
-    <div class="container">
-      <a href="#" class="navbar__logo" aria-label="На главную">
-        <div class="logo-mark" aria-hidden="true">А</div>
-        <span class="logo-text">Андрей<span class="logo-dot">.</span></span>
-        <span class="availability-badge" aria-label="Принимаю заказы">
-          <span class="availability-badge__dot"></span>
-          Принимаю заказы
-        </span>
+    <header class="site-header" data-header>
+      <a class="brand" href="#hero" aria-label="Андрей. На главную">
+        <span class="brand__mark">А</span><span>Андрей.</span>
       </a>
-
-      <ul class="navbar__links" role="list" id="nav-links">
-        <li><a href="#about">О себе</a></li>
-        <li><a href="#services">Услуги</a></li>
-        <li><a href="#portfolio">Портфолио</a></li>
-        <li><a href="#trust">Кейсы</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li>
-          <a href="#contacts" class="navbar__cta" aria-label="Написать Андрею">
-            Написать →
-          </a>
-        </li>
-      </ul>
-
-      <button
-        class="navbar__burger"
-        id="burger"
-        aria-label="Открыть меню"
-        aria-expanded="false"
-        aria-controls="nav-links"
-      >
-        <span></span>
-        <span></span>
-        <span></span>
+      <span class="availability"><span aria-hidden="true"></span>Принимаю заказы</span>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-menu" data-menu-button>
+        <span class="sr-only">Открыть меню</span>
+        <span aria-hidden="true"></span><span aria-hidden="true"></span>
       </button>
-    </div>
-  </nav>
+      <nav id="site-menu" class="site-nav" aria-label="Основная навигация" data-menu>
+        <a href="#about">Обо мне</a>
+        <a href="#services">Услуги</a>
+        <a href="#portfolio">Проекты</a>
+        <a href="#faq">FAQ</a>
+        <a class="nav-cta" href="https://t.me/andrworkk" target="_blank" rel="noopener noreferrer">Написать</a>
+      </nav>
+    </header>
 
-  <!-- ============================================
-       1. HERO — главный экран
-       ============================================ -->
-  <section id="hero" class="hero" aria-label="Главный экран">
-    <canvas class="hero__canvas" id="heroCanvas" aria-hidden="true"></canvas>
-    <div class="container">
-
-      <!-- Левая колонка: текст и CTA -->
-      <div class="hero__content">
-        <p class="hero__label">Андрей · Веб-дизайнер</p>
-
-        <h1 class="hero__title" data-text="Веб-дизайнер">
-          <span class="split-line"><span class="split-line__inner">Веб-дизайнер</span></span>
-          <span class="split-line"><span class="split-line__inner">который не просто</span></span>
-          <span class="split-line"><span class="split-line__inner"><span class="hero__title-accent">рисует макеты</span></span></span>
-        </h1>
-
-        <p class="hero__subtitle">
-          UI/UX и лендинги под ключ — для малого бизнеса и стартапов,
-          которым важен результат, а не просто «красиво»
-        </p>
-
-        <div class="hero__actions">
-          <a href="https://t.me/andrworkk" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-            Написать в Telegram
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-          <a href="#portfolio" class="btn btn-outline">
-            Смотреть работы
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
+    <main id="main">
+      <section id="hero" class="hero section-shell" aria-labelledby="hero-title">
+        <div class="hero__copy">
+          <p class="eyebrow" data-reveal>Андрей · веб-дизайнер</p>
+          <h1 id="hero-title" data-reveal>Лендинги под ключ — <span>дизайн, код и запуск</span></h1>
+          <p class="hero__lead" data-reveal>Для малого бизнеса и экспертов, которым нужен не макет, а понятный сайт, готовый к работе.</p>
+          <div class="hero__actions" data-reveal>
+            <a class="button button--primary" href="https://t.me/andrworkk" target="_blank" rel="noopener noreferrer">Написать в Telegram <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m21 3-7.2 18-3.9-7.1L3 10.1 21 3Z"/><path d="m9.9 13.9 4-4"/></svg></a>
+            <a class="button button--quiet" href="#portfolio">Смотреть проекты</a>
+          </div>
+          <p class="hero__proof" data-claims>Десять коммерческих проектов в портфолио</p>
         </div>
 
-        <div class="hero__stats" role="list" aria-label="Ключевые показатели">
-          <div class="hero__stat" role="listitem">
-            <span class="hero__stat-num">10+</span>
-            <span class="hero__stat-label">проектов</span>
+        <div class="hero__visual" data-hero-visual aria-label="Орбитальная композиция: дизайн, код и запуск">
+          <canvas id="hero-canvas" aria-hidden="true"></canvas>
+          <div class="hero-poster" aria-hidden="true">
+            <span class="hero-poster__ring hero-poster__ring--one"></span>
+            <span class="hero-poster__ring hero-poster__ring--two"></span>
+            <span class="hero-poster__node hero-poster__node--one"></span>
+            <span class="hero-poster__node hero-poster__node--two"></span>
+            <span class="hero-poster__hud hero-poster__hud--top">01<br><b>дизайн</b></span>
+            <span class="hero-poster__hud hero-poster__hud--bottom">03<br><b>запуск</b></span>
           </div>
-          <div class="hero__stat-divider" aria-hidden="true"></div>
-          <div class="hero__stat" role="listitem">
-            <span class="hero__stat-num">3</span>
-            <span class="hero__stat-label">года опыта</span>
-          </div>
-          <div class="hero__stat-divider" aria-hidden="true"></div>
-          <div class="hero__stat" role="listitem">
-            <span class="hero__stat-num">×4</span>
-            <span class="hero__stat-label">рост заявок</span>
-          </div>
+          <div class="hero-hud hero-hud--left" aria-hidden="true"><span>01</span><b>Структура</b></div>
+          <div class="hero-hud hero-hud--right" aria-hidden="true"><span>02</span><b>Вёрстка</b></div>
         </div>
-      </div>
+      </section>
 
-      <!-- Правая колонка: floating mockup со слайдером -->
-      <div class="hero__visual" aria-hidden="true">
-        <div class="hero__mockup-wrap">
-
-          <!-- Рамка ноутбука -->
-          <div class="hero__mockup" role="presentation">
-            <!-- Верхняя панель с кружками -->
-            <div class="hero__mockup-topbar">
-              <span class="hero__topbar-dot hero__topbar-dot--red"></span>
-              <span class="hero__topbar-dot hero__topbar-dot--yellow"></span>
-              <span class="hero__topbar-dot hero__topbar-dot--green"></span>
-              <span class="hero__topbar-url">andreydesign.ru</span>
-            </div>
-            <!-- Экран со слайдером -->
-            <div class="hero__mockup-screen">
-              <div class="hero__screen-slider" id="heroSlider">
-                <div class="hero__slide hero__slide--active">
-                  <img src="assets/img/portfolio/project1.svg" alt="Проект — лендинг для стартапа" loading="eager" width="800" height="500">
-                </div>
-                <div class="hero__slide">
-                  <img src="assets/img/portfolio/project2.svg" alt="Проект — дашборд аналитики" loading="lazy" width="800" height="500">
-                </div>
-                <div class="hero__slide">
-                  <img src="assets/img/portfolio/project3.svg" alt="Проект — корпоративный сайт" loading="lazy" width="800" height="500">
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Точки-индикаторы слайдера -->
-          <div class="hero__slider-dots" id="heroSliderDots" role="tablist" aria-label="Слайды">
-            <button class="hero__dot hero__dot--active" role="tab" aria-selected="true"  aria-label="Слайд 1" data-slide="0"></button>
-            <button class="hero__dot"                   role="tab" aria-selected="false" aria-label="Слайд 2" data-slide="1"></button>
-            <button class="hero__dot"                   role="tab" aria-selected="false" aria-label="Слайд 3" data-slide="2"></button>
-          </div>
-
-          <!-- Свечение под макетом -->
-          <div class="hero__glow" aria-hidden="true"></div>
+      <section id="about" class="about section-shell section" aria-labelledby="about-title">
+        <div class="section-heading" data-reveal>
+          <p class="eyebrow">01 · обо мне</p>
+          <h2 id="about-title">Один человек. <span>Полный цикл.</span></h2>
         </div>
-      </div>
-
-    </div>
-
-    <!-- Подсказка скролла -->
-    <div class="hero__scroll-hint" aria-hidden="true">
-      <span class="hero__scroll-text">Скролл</span>
-      <div class="hero__scroll-line"></div>
-    </div>
-  </section>
-
-  <div class="section-divider" role="separator" aria-hidden="true"></div>
-
-  <!-- ============================================
-       2. ABOUT — о себе
-       ============================================ -->
-  <section id="about" class="about" aria-labelledby="about-title">
-    <div class="container">
-      <div class="about__grid">
-
-        <!-- Визуальная колонка -->
-        <div class="about__visual reveal reveal--left">
-          <div class="about__photo">
-            <img src="assets/img/hero/andrey.jpg" alt="Андрей — веб-дизайнер" width="480" height="600" loading="lazy">
+        <div class="about__layout">
+          <div class="portrait-frame" data-reveal>
+            <img src="/assets/img/hero/andrey.jpg" width="1200" height="1200" alt="Андрей, веб-дизайнер" loading="lazy" />
+            <span class="portrait-frame__orbit" aria-hidden="true"></span>
+            <span class="portrait-frame__tag" aria-hidden="true">design + code</span>
           </div>
-          <div class="about__tools about__tools--icons">
-            <div class="tool-card reveal" data-delay="0.1">
-              <svg class="tool-card__icon" viewBox="0 0 38 57" fill="none" aria-hidden="true"><path d="M19 28.5a9.5 9.5 0 1 1 0-19h9.5v19H19z" fill="#A259FF"/><path d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z" fill="#0ACF83"/><path d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z" fill="#FF7262"/><path d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" fill="#F24E1E"/><path d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" fill="#1ABCFE"/></svg>
-              <span class="tool-card__name">Figma</span>
-            </div>
-            <div class="tool-card reveal" data-delay="0.15">
-              <svg class="tool-card__icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M6 42l3.25-36h29.5L42 42l-18 6-18-6z" fill="#E44D26"/><path d="M24 44.16l14.52-4.84L41.38 9H24v35.16z" fill="#F16529"/><path d="M24 20.37h-7.26L16.2 14h15.6l-.27 3.18H24v3.19zm-.37 7.71h-3.63l-.25-2.84H24v-3.18H16.46l.77 8.64H24v-2.62zm0 8.56l-.05.01-3.8-1.17-.24-2.74h-3.63l.48 5.37 7.19 2.27.05-.01v-3.73z" fill="#EBEBEB"/><path d="M24 20.37v3.19h6.88l-.65 7.26-6.23 1.67v3.73l7.2-2.27.05-.62.83-9.28.09-.96.53-5.96h-8.7v3.18z" fill="#FFF"/></svg>
-              <span class="tool-card__name">HTML5</span>
-            </div>
-            <div class="tool-card reveal" data-delay="0.2">
-              <svg class="tool-card__icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M6 42l3.25-36h29.5L42 42l-18 6-18-6z" fill="#1572B6"/><path d="M24 44.16l14.52-4.84L41.38 9H24v35.16z" fill="#33A9DC"/><path d="M24 20.37h-7.63l.53 5.96h7.1v-3.18h-3.8l-.25-2.78H24v-3.18H16.2l.13 1.44.77 8.64h7.1v3.18l-6.23 1.67.48 5.37 7.19 2.27v-3.73l-3.8-1.17-.24-2.74H24v-2.62h-7.54l-.77-8.52H24v-3.19H16.2z" fill="#EBEBEB"/><path d="M24 20.37v3.19h7.1l-.65 7.26-6.45 1.67v3.73l7.2-2.27.05-.62.83-9.28.09-.96.53-5.96H24v3.18h8.15l-.26 2.96H24z" fill="#FFF"/></svg>
-              <span class="tool-card__name">CSS3</span>
-            </div>
-            <div class="tool-card reveal" data-delay="0.25">
-              <svg class="tool-card__icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect width="48" height="48" rx="8" fill="#001E36"/><path d="M10.77 37.37a6.1 6.1 0 0 0 4.55 2.24c2.15 0 3.54-1.08 3.54-2.57 0-1.78-1.42-2.41-3.81-3.45l-1.31-.56c-3.78-1.61-6.29-3.63-6.29-7.89C7.45 21.23 10.76 18 15.62 18c3.39 0 5.82 1.18 7.58 4.27l-4.15 2.66a2.72 2.72 0 0 0-2.6-1.73c-1.18 0-1.93.75-1.93 1.73 0 1.22.75 1.71 2.49 2.47l1.31.56c4.45 1.91 6.97 3.85 6.97 8.23 0 4.71-3.71 7.31-8.68 7.31-4.87 0-8.02-2.32-9.56-5.36l4.52-2.77z" fill="#F0DB4F"/><path d="M30.46 36.86c1.22 2.01 2.81 3.49 5.62 3.49 2.36 0 3.87-1.18 3.87-2.81 0-1.96-1.55-2.65-4.15-3.79l-1.42-.61c-4.12-1.75-6.85-3.95-6.85-8.59 0-4.27 3.25-7.53 8.34-7.53 3.62 0 6.22 1.26 8.1 4.56l-4.43 2.84a2.93 2.93 0 0 0-2.76-1.87c-1.26 0-2.04.8-2.04 1.87 0 1.31.8 1.83 2.64 2.64l1.42.61c4.85 2.08 7.58 4.21 7.58 8.99 0 5.15-4.05 7.97-9.48 7.97-5.32 0-8.75-2.53-10.43-5.86l4.59-2.91z" fill="#F0DB4F"/></svg>
-              <span class="tool-card__name">JavaScript</span>
-            </div>
-            <div class="tool-card reveal" data-delay="0.3">
-              <svg class="tool-card__icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect width="48" height="48" rx="8" fill="#31A8FF"/><path d="M16.36 31.27c0 .63-.02 1.22-.06 1.77a8.47 8.47 0 0 1-.31 1.58c-.16.51-.38.99-.68 1.41a4.3 4.3 0 0 1-1.2 1.1c-.5.31-1.1.54-1.78.7a10.31 10.31 0 0 1-2.47.24l-.62-2.44c.55-.04 1.05-.12 1.5-.25.44-.13.81-.33 1.12-.59.31-.27.54-.63.7-1.07.16-.44.24-1 .24-1.69V19.38h3.56v11.89zM20.4 36.8V19.38h5.92c1.07 0 2.02.14 2.84.43.82.28 1.51.7 2.06 1.24.56.54.98 1.2 1.27 1.97.29.77.43 1.64.43 2.6 0 1.02-.17 1.93-.5 2.73-.34.8-.81 1.47-1.42 2.02a6.13 6.13 0 0 1-2.15 1.27 8.01 8.01 0 0 1-2.71.44H23.9v4.72H20.4zm3.5-7.9h2.02c.48 0 .92-.07 1.33-.2.4-.14.75-.35 1.05-.62.29-.27.52-.61.69-1.02.17-.41.25-.89.25-1.44 0-.51-.07-.96-.22-1.35a2.55 2.55 0 0 0-.63-.97 2.58 2.58 0 0 0-.99-.58 4.02 4.02 0 0 0-1.32-.2H23.9v6.38z" fill="#001E36"/></svg>
-              <span class="tool-card__name">Photoshop</span>
-            </div>
-            <div class="tool-card reveal" data-delay="0.35">
-              <svg class="tool-card__icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect width="48" height="48" rx="8" fill="#FBD13A"/><path d="M14 14h20v20H14z" fill="#1A1A1A"/><path d="M18 20h12v2H18zm0 4h8v2H18z" fill="#FBD13A"/></svg>
-              <span class="tool-card__name">Tilda</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Текстовая колонка -->
-        <div class="about__content">
-          <p class="section-label reveal" data-delay="0.1">О себе</p>
-          <h2 id="about-title" class="reveal" data-delay="0.15">
-            Дизайнер,<br>
-            который сдаёт<br>
-            <span class="accent">готовый продукт</span>
-          </h2>
-
-          <p class="about__text reveal" data-delay="0.2">
-            3 года я создаю сайты, которые выглядят профессионально
-            и реально работают на бизнес. Обучался в Высшей школе программирования.
-          </p>
-          <p class="about__text reveal" data-delay="0.25">
-            Моё главное отличие — я не останавливаюсь на макете.
-            Я сам верстаю: Figma → чистый HTML/CSS → готовый рабочий сайт.
-            Вам не нужен отдельный разработчик.
-          </p>
-
-          <blockquote class="about__quote reveal" data-delay="0.3">
-            «Красивый сайт, который не продаёт — это дорогая картинка.
-            Я создаю дизайн с логикой продаж внутри.»
-          </blockquote>
-
-          <div class="about__included reveal" data-delay="0.35">
-            <div class="about__included-item">✓ Сдаю в срок — без исключений</div>
-            <div class="about__included-item">✓ Сам пишу код — дизайнер + разработчик</div>
-            <div class="about__included-item">✓ 2 раунда правок включены</div>
-            <div class="about__included-item">✓ Поддержка 7 дней после запуска</div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <div class="section-divider" role="separator" aria-hidden="true"></div>
-
-  <!-- ============================================
-       3. SERVICES — услуги
-       ============================================ -->
-  <section id="services" class="services" aria-labelledby="services-title">
-    <div class="container">
-
-      <div class="services__header reveal">
-        <p class="section-label">Услуги</p>
-        <h2 id="services-title">Что я делаю</h2>
-      </div>
-
-      <div class="services__grid">
-
-        <!-- 01: Лендинг — featured -->
-        <div class="service-card service-card--featured reveal" data-delay="0.1">
-          <div class="service-card__left">
-            <div class="service-card__icon" aria-hidden="true">🎯</div>
-            <div class="service-card__num" aria-hidden="true">01</div>
-            <h3>Лендинг под ключ</h3>
-            <p>Продающая одностраничная страница — от концепции до запуска без лишних шагов</p>
-          </div>
-          <div class="service-card__right">
-            <ul class="service-card__list">
-              <li>Дизайн в Figma</li>
-              <li>Чистая HTML/CSS вёрстка</li>
-              <li>Адаптив под все устройства</li>
-              <li>SEO-базис + домен</li>
+          <div class="about__copy" data-reveal>
+            <p>Я проектирую сайт, собираю дизайн, верстаю и помогаю довести его до запуска. В проекте не теряются детали между дизайнером и разработчиком — потому что это одна связная работа.</p>
+            <ul class="fact-list">
+              <li><span>01</span>Структура с опорой на задачу бизнеса</li>
+              <li><span>02</span>Дизайн, который читает пользователь</li>
+              <li><span>03</span>Чистая адаптивная вёрстка</li>
             </ul>
-            <div class="service-card__footer">
-              <div class="service-card__meta">
-                <span>от 5 дней</span>
-                <span>от 10 000 ₽</span>
-              </div>
-              <a href="https://t.me/andrworkk" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
-                Обсудить →
-              </a>
-            </div>
           </div>
         </div>
+      </section>
 
-        <!-- 02: Многостраничный -->
-        <div class="service-card reveal" data-delay="0.2">
-          <div class="service-card__num" aria-hidden="true">02</div>
-          <h3>Многостраничный сайт</h3>
-          <p>Полноценный сайт с несколькими разделами для бизнеса, которому нужно больше</p>
-          <div class="service-card__footer">
-            <div class="service-card__meta">
-              <span>от 14 дней</span>
-              <span>индивидуально</span>
-            </div>
-          </div>
+      <section id="services" class="services section-shell section" aria-labelledby="services-title">
+        <div class="section-heading section-heading--split" data-reveal>
+          <div><p class="eyebrow">02 · услуги</p><h2 id="services-title">Что можно <span>собрать вместе</span></h2></div>
+          <p>Основные форматы — от первого экрана до готового сайта. Дополнительные услуги оставляю отдельными и понятными.</p>
         </div>
-
-        <!-- 03: Редизайн -->
-        <div class="service-card reveal" data-delay="0.3">
-          <div class="service-card__num" aria-hidden="true">03</div>
-          <h3>Редизайн сайта</h3>
-          <p>Обновлю устаревший дизайн — современно, быстро, без потери позиций в поиске</p>
-          <div class="service-card__footer">
-            <div class="service-card__meta">
-              <span>от 7 дней</span>
-              <span>индивидуально</span>
-            </div>
-          </div>
+        <div class="service-grid">
+          <article class="service service--landing" data-reveal><span class="service__number">01</span><div class="service-object service-object--window" aria-hidden="true"><i></i><i></i><i></i></div><h3>Лендинг под ключ</h3><p>Структура, дизайн, вёрстка и подготовка к запуску одной страницей.</p><a href="https://t.me/andrworkk" target="_blank" rel="noopener noreferrer">Обсудить задачу</a></article>
+          <article class="service service--site" data-reveal><span class="service__number">02</span><div class="service-object service-object--panels" aria-hidden="true"><i></i><i></i><i></i></div><h3>Многостраничный сайт</h3><p>Для бизнеса, которому нужно разложить услуги, процессы и аргументы по разделам.</p><a href="https://t.me/andrworkk" target="_blank" rel="noopener noreferrer">Обсудить задачу</a></article>
+          <article class="service service--redesign" data-reveal><span class="service__number">03</span><div class="service-object service-object--cubes" aria-hidden="true"><i></i><i></i><i></i></div><h3>Редизайн сайта</h3><p>Новая визуальная система и понятная подача вместо устаревшего первого впечатления.</p><a href="https://t.me/andrworkk" target="_blank" rel="noopener noreferrer">Обсудить задачу</a></article>
         </div>
+        <ul class="service-extras" data-reveal><li><span>04</span><b>Вёрстка по макету</b><p>Переведу готовый дизайн в адаптивный интерфейс.</p></li><li><span>05</span><b>Консультация по дизайну</b><p>Разберу текущую страницу и точки роста.</p></li></ul>
+      </section>
 
-        <!-- 04: Вёрстка -->
-        <div class="service-card reveal" data-delay="0.4">
-          <div class="service-card__num" aria-hidden="true">04</div>
-          <h3>Вёрстка по макету</h3>
-          <p>Есть дизайн в Figma? Переведу в чистый HTML/CSS-код, работающий везде</p>
-          <div class="service-card__footer">
-            <div class="service-card__meta">
-              <span>от 3 дней</span>
-              <span>индивидуально</span>
-            </div>
-          </div>
+      <section id="portfolio" class="portfolio section-shell section" aria-labelledby="portfolio-title" tabindex="-1">
+        <div class="section-heading section-heading--split" data-reveal>
+          <div><p class="eyebrow">03 · портфолио</p><h2 id="portfolio-title">Работы, которые <span>можно рассмотреть</span></h2></div>
+          <p>Все проекты в этой подборке — коммерческие. Публичные URL сейчас не показываю, зато оставляю аккуратные карточки с деталями.</p>
         </div>
-
-        <!-- 05: Консультация -->
-        <div class="service-card reveal" data-delay="0.5">
-          <div class="service-card__num" aria-hidden="true">05</div>
-          <h3>Консультация по дизайну</h3>
-          <p>Разберу ваш текущий сайт, укажу на слабые места и дам
-          конкретный план улучшений — без воды и общих слов</p>
-          <div class="service-card__footer">
-            <div class="service-card__meta">
-              <span>от 1 дня</span>
-              <span>индивидуально</span>
-            </div>
-          </div>
+        <div class="portfolio-stage" data-portfolio>
+          <div class="project-selector" aria-label="Избранные проекты" data-project-selector></div>
+          <article class="project-stage" data-project-stage aria-live="polite"></article>
         </div>
-
-      </div>
-
-      <!-- Процесс работы -->
-      <div class="work-process reveal" data-delay="0.1">
-        <p class="section-label" style="text-align:center">Как я работаю</p>
-        <div class="work-process__steps" role="list">
-          <div class="work-step" role="listitem">
-            <span class="work-step__num">01</span>
-            <span>Бриф</span>
-          </div>
-          <div class="work-step__arrow" aria-hidden="true">→</div>
-          <div class="work-step" role="listitem">
-            <span class="work-step__num">02</span>
-            <span>Дизайн</span>
-          </div>
-          <div class="work-step__arrow" aria-hidden="true">→</div>
-          <div class="work-step" role="listitem">
-            <span class="work-step__num">03</span>
-            <span>Согласование</span>
-          </div>
-          <div class="work-step__arrow" aria-hidden="true">→</div>
-          <div class="work-step" role="listitem">
-            <span class="work-step__num">04</span>
-            <span>Вёрстка</span>
-          </div>
-          <div class="work-step__arrow" aria-hidden="true">→</div>
-          <div class="work-step" role="listitem">
-            <span class="work-step__num">05</span>
-            <span>Правки</span>
-          </div>
-          <div class="work-step__arrow" aria-hidden="true">→</div>
-          <div class="work-step" role="listitem">
-            <span class="work-step__num">06</span>
-            <span>Запуск</span>
-          </div>
+        <div class="portfolio-mobile-controls" data-project-controls>
+          <button type="button" data-project-previous aria-label="Предыдущий избранный проект">←</button>
+          <span data-project-position aria-live="polite"></span>
+          <button type="button" data-project-next aria-label="Следующий избранный проект">→</button>
         </div>
-      </div>
+        <div class="project-archive" data-project-archive aria-label="Архив проектов"></div>
+        <noscript><div class="static-project-list"><p class="noscript-note">JavaScript выключен, поэтому показываю статичный список проектов.</p><ol><li>Драфт — лендинг, IT и креатив</li><li>PIERRE — лендинг, ритейл</li><li>EcoWood — лендинг, строительство</li><li>Sapphire Cars — многостраничный сайт, авто</li><li>Master Pro — лендинг, услуги</li><li>ПАФ РемСтак — многостраничный сайт, промышленность</li><li>Милликен — многостраничный сайт, электромонтаж</li><li>Юридические услуги — многостраничный сайт</li><li>ОмегаПром — многостраничный сайт, энергетика</li><li>Метал Мебель — многостраничный сайт, производство</li></ol></div></noscript>
+      </section>
 
-    </div>
-  </section>
+      <section id="ecowood" class="case section-shell section" aria-labelledby="case-title">
+        <div class="case__copy" data-reveal><p class="eyebrow">04 · featured case</p><h2 id="case-title">EcoWood: <span>сайт для строительной компании</span></h2><p>Главный подробный кейс в подборке. Детали работы и экран проекта доступны в drawer без подмены его несуществующей live-ссылкой.</p><a class="button button--quiet" href="#project/ecowood" data-project-link="ecowood">Смотреть кейс</a></div>
+        <a class="case-browser" href="#project/ecowood" data-project-link="ecowood" data-reveal aria-label="Открыть кейс EcoWood"><img src="/assets/img/portfolio/work9.jpg" width="1600" height="1000" alt="Экран проекта EcoWood" loading="lazy" /><span class="case-browser__orbit" aria-hidden="true"></span></a>
+      </section>
 
-  <div class="section-divider" role="separator" aria-hidden="true"></div>
-
-  <!-- ============================================
-       4. PORTFOLIO — работы
-       ============================================ -->
-  <div class="portfolio-scroll-wrapper" id="portfolioWrapper">
-  <section id="portfolio" class="portfolio" aria-labelledby="portfolio-title">
-
-    <div class="container">
-      <div class="portfolio__header reveal">
-        <p class="section-label">Портфолио</p>
-        <h2 id="portfolio-title">Мои работы</h2>
-        <p class="portfolio__hint">Скролль вниз — карточки едут вправо</p>
-      </div>
-
-      <!-- Фильтр по категориям -->
-      <div class="portfolio__filter" role="tablist" aria-label="Фильтр работ">
-        <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">Все работы</button>
-        <button class="filter-btn" data-filter="landing" role="tab" aria-selected="false">Лендинги</button>
-        <button class="filter-btn" data-filter="multipage" role="tab" aria-selected="false">Многостраничные</button>
-        <button class="filter-btn" data-filter="it" role="tab" aria-selected="false">IT</button>
-        <button class="filter-btn" data-filter="construction" role="tab" aria-selected="false">Строительство</button>
-      </div>
-    </div>
-
-    <!-- Горизонтальная лента карточек — вне .container -->
-    <div class="portfolio__horizontal" id="portfolioHorizontal">
-      <div class="portfolio__track" id="portfolioTrack">
-
-        <!-- FEATURED: Драфт — IT/креатив -->
-        <div class="portfolio-card portfolio-card--featured reveal"
-             data-category="it landing"
-             data-tilt>
-          <div class="portfolio-card__preview">
-            <img src="assets/img/portfolio/work6.jpg"
-                 alt="Драфт — агентство креативных коммуникаций"
-                 class="portfolio-card__img" loading="eager">
-            <div class="portfolio-card__overlay">
-              <a href="https://t.me/andrworkk" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Смотреть проект →</a>
-            </div>
-          </div>
-          <div class="portfolio-card__info">
-            <div class="portfolio-card__tags">
-              <span class="tag">IT</span>
-              <span class="tag">Лендинг</span>
-            </div>
-            <h3 class="portfolio-card__title">Драфт — агентство заметок</h3>
-            <p class="portfolio-card__desc">Тёмный лендинг для агентства креативных коммуникаций</p>
-          </div>
+      <section class="benefits section-shell section" aria-labelledby="benefits-title">
+        <div class="section-heading" data-reveal><p class="eyebrow">05 · подход</p><h2 id="benefits-title">Сайт — это не картинка, <span>а рабочий маршрут</span></h2></div>
+        <div class="benefit-grid">
+          <article data-reveal><div class="benefit-object benefit-object--torus" aria-hidden="true"></div><h3>Один контекст</h3><p>Задача, текст, визуал и код не распадаются между исполнителями.</p></article>
+          <article data-reveal><div class="benefit-object benefit-object--wave" aria-hidden="true"></div><h3>Понятные шаги</h3><p>Сначала определяем структуру, затем собираем интерфейс и проверяем его на устройствах.</p></article>
+          <article data-reveal><div class="benefit-object benefit-object--network" aria-hidden="true"></div><h3>Готовность к запуску</h3><p>Результат — сайт, который можно использовать, а не только согласовать в макете.</p></article>
         </div>
+      </section>
 
-        <!-- PIERRE — лендинг плитки -->
-        <div class="portfolio-card reveal" data-delay="0.1"
-             data-category="landing"
-             data-tilt>
-          <div class="portfolio-card__preview">
-            <img src="assets/img/portfolio/work5.jpg"
-                 alt="PIERRE — итальянская плитка"
-                 class="portfolio-card__img" loading="lazy">
-            <div class="portfolio-card__overlay">
-              <a href="https://t.me/andrworkk" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Смотреть →</a>
-            </div>
-          </div>
-          <div class="portfolio-card__info">
-            <div class="portfolio-card__tags"><span class="tag">Лендинг</span></div>
-            <h3 class="portfolio-card__title">PIERRE — итальянская плитка</h3>
-            <p class="portfolio-card__desc">Минималистичный лендинг для премиум-магазина плитки</p>
-          </div>
+      <section class="reviews section-shell section" aria-labelledby="reviews-title">
+        <div class="section-heading" data-reveal><p class="eyebrow">06 · отзывы</p><h2 id="reviews-title">Слова клиентов</h2></div>
+        <div class="review-list" data-reveal>
+          <blockquote>«Андрей — грамотный специалист. Не сорвал сроки, всё подключил, мне не пришлось ни в чём разбираться. Получил готовый сайт, который работает и приносит реальных клиентов.»<footer>Константин · онлайн-курс по маркетингу</footer></blockquote>
+          <blockquote>«Сделал нам лендинг за 5 дней — быстро, чисто, без лишних вопросов. Дизайн понравился сразу, правки внёс моментально. Рекомендую.»<footer>Михаил · строительная компания</footer></blockquote>
+          <blockquote>«Очень понравился подход — сначала разобрался в нашей нише, потом предложил структуру. Сайт выглядит профессионально и уже приносит первые заявки.»<footer>Алексей · IT-стартап</footer></blockquote>
+          <blockquote>«Заказывали редизайн старого сайта. Андрей предложил несколько концепций, помог выбрать. Результат превзошёл ожидания.»<footer>Елена · юридическая компания</footer></blockquote>
+          <blockquote>«Вёрстка по нашему макету — сделал всё точно в пиксель. Адаптив работает идеально, код чистый.»<footer>Дмитрий · агентство недвижимости</footer></blockquote>
         </div>
+      </section>
 
-        <!-- EcoWood — стройка -->
-        <div class="portfolio-card reveal" data-delay="0.2"
-             data-category="landing construction"
-             data-tilt>
-          <div class="portfolio-card__preview">
-            <img src="assets/img/portfolio/work9.jpg"
-                 alt="EcoWood — строительство домов"
-                 class="portfolio-card__img" loading="lazy">
-            <div class="portfolio-card__overlay">
-              <a href="https://t.me/andrworkk" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Смотреть →</a>
-            </div>
-          </div>
-          <div class="portfolio-card__info">
-            <div class="portfolio-card__tags">
-              <span class="tag">Лендинг</span>
-              <span class="tag">Строительство</span>
-            </div>
-            <h3 class="portfolio-card__title">EcoWood — дома из дерева</h3>
-            <p class="portfolio-card__desc">Современный лендинг для строительной компании</p>
-          </div>
+      <section id="faq" class="faq section-shell section" aria-labelledby="faq-title">
+        <div class="section-heading" data-reveal><p class="eyebrow">07 · FAQ</p><h2 id="faq-title">Частые вопросы</h2></div>
+        <div class="faq__orbit" aria-hidden="true"></div>
+        <div class="faq-list" data-faq>
+          <article><h3><button aria-expanded="false" aria-controls="answer-price" id="question-price">Сколько стоит лендинг?<span aria-hidden="true"></span></button></h3><div id="answer-price" role="region" aria-labelledby="question-price" hidden><p>Стоимость зависит от объёма и задачи. После брифа можно определить состав работ и назвать точную цену.</p></div></article>
+          <article><h3><button aria-expanded="false" aria-controls="answer-prepay" id="question-prepay">Нужна ли предоплата?<span aria-hidden="true"></span></button></h3><div id="answer-prepay" role="region" aria-labelledby="question-prepay" hidden><p>Условия оплаты обсуждаются до старта, когда понятен объём работ и формат проекта.</p></div></article>
+          <article><h3><button aria-expanded="false" aria-controls="answer-edits" id="question-edits">Как проходят правки?<span aria-hidden="true"></span></button></h3><div id="answer-edits" role="region" aria-labelledby="question-edits" hidden><p>Правки собираются по этапам, чтобы решение оставалось цельным и не терялась логика страницы.</p></div></article>
+          <article><h3><button aria-expanded="false" aria-controls="answer-time" id="question-time">Сколько занимает работа?<span aria-hidden="true"></span></button></h3><div id="answer-time" role="region" aria-labelledby="question-time" hidden><p>Срок зависит от количества разделов, материалов и согласований. Его фиксируем после обсуждения задачи.</p></div></article>
+          <article><h3><button aria-expanded="false" aria-controls="answer-domain" id="question-domain">Поможете с доменом и хостингом?<span aria-hidden="true"></span></button></h3><div id="answer-domain" role="region" aria-labelledby="question-domain" hidden><p>Помогу с подготовкой сайта к запуску и подскажу следующий технический шаг.</p></div></article>
+          <article><h3><button aria-expanded="false" aria-controls="answer-support" id="question-support">Есть ли поддержка после запуска?<span aria-hidden="true"></span></button></h3><div id="answer-support" role="region" aria-labelledby="question-support" hidden><p>Формат поддержки обсуждается отдельно и зависит от задач после запуска.</p></div></article>
         </div>
+      </section>
 
-        <!-- Sapphire Cars -->
-        <div class="portfolio-card reveal" data-delay="0.1"
-             data-category="multipage"
-             data-tilt>
-          <div class="portfolio-card__preview">
-            <img src="assets/img/portfolio/work2.jpg"
-                 alt="Sapphire Cars — аренда авто"
-                 class="portfolio-card__img" loading="lazy">
-            <div class="portfolio-card__overlay">
-              <a href="https://t.me/andrworkk" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Смотреть →</a>
-            </div>
-          </div>
-          <div class="portfolio-card__info">
-            <div class="portfolio-card__tags"><span class="tag">Многостраничный</span></div>
-            <h3 class="portfolio-card__title">Sapphire Cars — аренда авто</h3>
-            <p class="portfolio-card__desc">Сайт аренды премиум-автомобилей в Крыму</p>
-          </div>
-        </div>
+      <section id="contacts" class="contact section-shell section" aria-labelledby="contacts-title">
+        <div class="contact__copy" data-reveal><p class="eyebrow">08 · контакты</p><h2 id="contacts-title">Обсудим <span>ваш проект</span></h2><p>Главный канал связи — Telegram. Можно также написать на почту или посмотреть профиль на Avito.</p><a class="button button--primary" href="https://t.me/andrworkk" target="_blank" rel="noopener noreferrer">Написать в Telegram <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m21 3-7.2 18-3.9-7.1L3 10.1 21 3Z"/><path d="m9.9 13.9 4-4"/></svg></a><ul class="contact-links"><li><a href="mailto:andrwork@protonmail.com">andrwork@protonmail.com</a></li><li><a href="https://www.avito.ru/moskva/predlozheniya_uslug/sozdanie_saytov_pod_klyuch_8041492479" target="_blank" rel="noopener noreferrer">Профиль на Avito</a></li></ul></div>
+        <form class="contact-form" aria-describedby="form-status" data-contact-form>
+          <div class="contact-form__cap"><span>Форма</span><b>Временно недоступна</b></div>
+          <p id="form-status">Пока нет согласованного текста о персональных данных и нового серверного ключа, заявки принимаются в Telegram.</p>
+          <fieldset disabled><label>Ваше имя<input name="name" type="text" autocomplete="name" /></label><label>Телефон или Telegram<input name="contact" type="text" autocomplete="tel" /></label><label>Тип услуги<select name="service"><option>Выберите услугу</option><option>Лендинг под ключ</option><option>Многостраничный сайт</option><option>Редизайн сайта</option><option>Вёрстка по макету</option><option>Консультация по дизайну</option></select></label><label>Кратко о задаче<textarea name="message" rows="4"></textarea></label><button class="button button--quiet" type="submit">Отправить заявку</button></fieldset>
+        </form>
+      </section>
+    </main>
 
-        <!-- Master Pro — сервис -->
-        <div class="portfolio-card reveal" data-delay="0.2"
-             data-category="landing"
-             data-tilt>
-          <div class="portfolio-card__preview">
-            <img src="assets/img/portfolio/work10.jpg"
-                 alt="Master Pro — ремонт техники"
-                 class="portfolio-card__img" loading="lazy">
-            <div class="portfolio-card__overlay">
-              <a href="https://t.me/andrworkk" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Смотреть →</a>
-            </div>
-          </div>
-          <div class="portfolio-card__info">
-            <div class="portfolio-card__tags"><span class="tag">Лендинг</span></div>
-            <h3 class="portfolio-card__title">Master Pro — ремонт техники</h3>
-            <p class="portfolio-card__desc">Лендинг сервисного центра по ремонту бытовой техники</p>
-          </div>
-        </div>
+    <footer class="site-footer"><div class="footer-horizon" aria-hidden="true"></div><div class="section-shell footer__inner"><a class="brand" href="#hero"><span class="brand__mark">А</span><span>Андрей.</span></a><p>Лендинги под ключ: дизайн, код и запуск.</p><small>© <span data-year></span> Андрей.</small></div></footer>
 
-        <!-- ПАФ РемСтак -->
-        <div class="portfolio-card reveal" data-delay="0.3"
-             data-category="multipage construction"
-             data-tilt>
-          <div class="portfolio-card__preview">
-            <img src="assets/img/portfolio/work1.jpg"
-                 alt="ПАФ РемСтак — ремонт станков"
-                 class="portfolio-card__img" loading="lazy">
-            <div class="portfolio-card__overlay">
-              <a href="https://t.me/andrworkk" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Смотреть →</a>
-            </div>
-          </div>
-          <div class="portfolio-card__info">
-            <div class="portfolio-card__tags">
-              <span class="tag">Многостраничный</span>
-              <span class="tag">Строительство</span>
-            </div>
-            <h3 class="portfolio-card__title">ПАФ РемСтак — ремонт станков</h3>
-            <p class="portfolio-card__desc">Корпоративный сайт завода по обслуживанию оборудования</p>
-          </div>
-        </div>
-
-        <!-- Милликен — электрика -->
-        <div class="portfolio-card reveal" data-delay="0.1"
-             data-category="multipage construction"
-             data-tilt>
-          <div class="portfolio-card__preview">
-            <img src="assets/img/portfolio/work3.jpg"
-                 alt="Милликен — монтаж кабелей"
-                 class="portfolio-card__img" loading="lazy">
-            <div class="portfolio-card__overlay">
-              <a href="https://t.me/andrworkk" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Смотреть →</a>
-            </div>
-          </div>
-          <div class="portfolio-card__info">
-            <div class="portfolio-card__tags">
-              <span class="tag">Многостраничный</span>
-              <span class="tag">Строительство</span>
-            </div>
-            <h3 class="portfolio-card__title">Милликен — монтаж кабелей</h3>
-            <p class="portfolio-card__desc">Сайт компании по прокладке высоковольтных кабелей</p>
-          </div>
-        </div>
-
-        <!-- Юридические услуги -->
-        <div class="portfolio-card reveal" data-delay="0.2"
-             data-category="multipage"
-             data-tilt>
-          <div class="portfolio-card__preview">
-            <img src="assets/img/portfolio/work7.jpg"
-                 alt="Юридические услуги для бизнеса"
-                 class="portfolio-card__img" loading="lazy">
-            <div class="portfolio-card__overlay">
-              <a href="https://t.me/andrworkk" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Смотреть →</a>
-            </div>
-          </div>
-          <div class="portfolio-card__info">
-            <div class="portfolio-card__tags"><span class="tag">Многостраничный</span></div>
-            <h3 class="portfolio-card__title">Юридические услуги</h3>
-            <p class="portfolio-card__desc">Корпоративный сайт юридической компании</p>
-          </div>
-        </div>
-
-        <!-- ОмегаПром -->
-        <div class="portfolio-card reveal" data-delay="0.3"
-             data-category="multipage construction"
-             data-tilt>
-          <div class="portfolio-card__preview">
-            <img src="assets/img/portfolio/work8.jpg"
-                 alt="ОмегаПром — энергетика"
-                 class="portfolio-card__img" loading="lazy">
-            <div class="portfolio-card__overlay">
-              <a href="https://t.me/andrworkk" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Смотреть →</a>
-            </div>
-          </div>
-          <div class="portfolio-card__info">
-            <div class="portfolio-card__tags">
-              <span class="tag">Многостраничный</span>
-              <span class="tag">Строительство</span>
-            </div>
-            <h3 class="portfolio-card__title">ОмегаПром — энергетика</h3>
-            <p class="portfolio-card__desc">Сайт предприятия полного цикла в энергетической сфере</p>
-          </div>
-        </div>
-
-        <!-- Метал Мебель -->
-        <div class="portfolio-card reveal" data-delay="0.4"
-             data-category="multipage"
-             data-tilt>
-          <div class="portfolio-card__preview">
-            <img src="assets/img/portfolio/work11.jpg"
-                 alt="Метал Мебель — металлическая мебель"
-                 class="portfolio-card__img" loading="lazy">
-            <div class="portfolio-card__overlay">
-              <a href="https://t.me/andrworkk" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Смотреть →</a>
-            </div>
-          </div>
-          <div class="portfolio-card__info">
-            <div class="portfolio-card__tags"><span class="tag">Многостраничный</span></div>
-            <h3 class="portfolio-card__title">Метал Мебель</h3>
-            <p class="portfolio-card__desc">Интернет-каталог металлической мебели для офиса</p>
-          </div>
-        </div>
-
-      </div><!-- /.portfolio__track -->
-    </div><!-- /.portfolio__horizontal -->
-
-    <!-- Прогресс-бар -->
-    <div class="portfolio__progress-bar" id="portfolioProgress" aria-hidden="true">
-      <div class="portfolio__progress-fill" id="portfolioProgressFill"></div>
-    </div>
-
-  </section>
-  </div><!-- /.portfolio-scroll-wrapper -->
-
-  <div class="section-divider" role="separator" aria-hidden="true"></div>
-
-  <!-- ============================================
-       5. TRUST — кейсы / доверие
-       ============================================ -->
-  <section id="trust" class="trust" aria-labelledby="trust-title">
-    <div class="container">
-
-      <div class="trust__header reveal">
-        <p class="section-label">Социальное доказательство</p>
-        <h2 id="trust-title">Почему мне доверяют</h2>
-      </div>
-
-      <!-- Блок цифр -->
-      <div class="trust__stats">
-        <div class="trust__stat reveal">
-          <div class="trust__stat-inner">
-            <span class="trust__stat-num" data-count="10">0</span><span class="trust__stat-plus">+</span>
-          </div>
-          <span class="trust__stat-label">проектов выполнено</span>
-        </div>
-        <div class="trust__stat reveal" data-delay="0.1">
-          <div class="trust__stat-inner">
-            <span class="trust__stat-num" data-count="3">0</span>
-          </div>
-          <span class="trust__stat-label">года в дизайне</span>
-        </div>
-        <div class="trust__stat reveal" data-delay="0.2">
-          <div class="trust__stat-inner">
-            <span class="trust__stat-num">в 4 раза</span>
-          </div>
-          <span class="trust__stat-label">больше заявок уже в первый месяц после запуска с минимальной рекламой</span>
-        </div>
-        <div class="trust__stat reveal" data-delay="0.3">
-          <div class="trust__stat-inner">
-            <span class="trust__stat-num" data-count="5">0</span>
-          </div>
-          <span class="trust__stat-label">дней — срок лендинга</span>
-        </div>
-      </div>
-
-      <!-- Кейс -->
-      <div class="case-study reveal" data-delay="0.1">
-        <div class="case-study__label">Кейс</div>
-        <div class="case-study__grid">
-          <div class="case-study__content">
-            <h3>EcoWood — строительство домов из дерева</h3>
-            <div class="case-study__steps">
-              <div class="case-step">
-                <span class="case-step__title">Задача</span>
-                <p>Устаревший сайт не вызывал доверия — клиенты уходили
-                к конкурентам. Нужен был современный лендинг под ключ.</p>
-              </div>
-              <div class="case-step">
-                <span class="case-step__title">Что сделал</span>
-                <p>Разработал новый лендинг с упором на качество и надёжность:
-                продающая структура, живые фото объектов, SEO-базис.</p>
-              </div>
-              <div class="case-step">
-                <span class="case-step__title">Результат</span>
-                <p class="case-step__result">×4 заявки уже в первый месяц
-                после запуска с минимальной рекламой</p>
-              </div>
-            </div>
-          </div>
-          <div class="case-study__visual">
-            <img src="assets/img/portfolio/work9.jpg"
-                 alt="Кейс — EcoWood, строительство домов"
-                 loading="lazy">
-          </div>
-        </div>
-      </div>
-
-      <!-- Отзывы: бесконечная лента -->
-      <div class="testimonials-section reveal" data-delay="0.15">
-        <p class="section-label" style="text-align:center; margin-bottom: 40px;">Отзывы клиентов</p>
-
-        <div class="marquee" aria-label="Отзывы клиентов">
-          <div class="marquee__track">
-
-            <!-- ── Карточка 1 ── -->
-            <div class="t-card" role="article">
-              <div class="t-card__stars" aria-label="5 звёзд">★★★★★</div>
-              <p class="t-card__text">
-                «Андрей — грамотный специалист. Не сорвал сроки, всё подключил,
-                мне не пришлось ни в чём разбираться. Получил готовый сайт,
-                который работает и приносит реальных клиентов.»
-              </p>
-              <div class="t-card__author">
-                <div class="t-card__avatar" style="background: #4F8EF7;" aria-hidden="true">К</div>
-                <div>
-                  <strong>Константин</strong>
-                  <span>Онлайн-курс по маркетингу</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- ── Карточка 2 ── -->
-            <div class="t-card" role="article">
-              <div class="t-card__stars" aria-label="5 звёзд">★★★★★</div>
-              <p class="t-card__text">
-                «Сделал нам лендинг за 5 дней — быстро, чисто, без лишних вопросов.
-                Дизайн понравился сразу, правки внёс моментально. Рекомендую.»
-              </p>
-              <div class="t-card__author">
-                <div class="t-card__avatar" style="background: #00C896;" aria-hidden="true">М</div>
-                <div>
-                  <strong>Михаил</strong>
-                  <span>Строительная компания</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- ── Карточка 3 ── -->
-            <div class="t-card" role="article">
-              <div class="t-card__stars" aria-label="5 звёзд">★★★★★</div>
-              <p class="t-card__text">
-                «Очень понравился подход — сначала разобрался в нашей нише,
-                потом предложил структуру. Сайт выглядит профессионально
-                и уже приносит первые заявки.»
-              </p>
-              <div class="t-card__author">
-                <div class="t-card__avatar" style="background: #FF6B6B;" aria-hidden="true">А</div>
-                <div>
-                  <strong>Алексей</strong>
-                  <span>IT-стартап</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- ── Карточка 4 ── -->
-            <div class="t-card" role="article">
-              <div class="t-card__stars" aria-label="5 звёзд">★★★★★</div>
-              <p class="t-card__text">
-                «Заказывали редизайн старого сайта. Андрей предложил несколько
-                концепций, помог выбрать. Результат превзошёл ожидания —
-                сайт стал выглядеть современно и работать быстро.»
-              </p>
-              <div class="t-card__author">
-                <div class="t-card__avatar" style="background: #A855F7;" aria-hidden="true">Е</div>
-                <div>
-                  <strong>Елена</strong>
-                  <span>Юридическая компания</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- ── Карточка 5 ── -->
-            <div class="t-card" role="article">
-              <div class="t-card__stars" aria-label="5 звёзд">★★★★★</div>
-              <p class="t-card__text">
-                «Вёрстка по нашему макету — сделал всё точно в пиксель.
-                Адаптив работает идеально, код чистый. Будем обращаться ещё.»
-              </p>
-              <div class="t-card__author">
-                <div class="t-card__avatar" style="background: #F59E0B;" aria-hidden="true">Д</div>
-                <div>
-                  <strong>Дмитрий</strong>
-                  <span>Агентство недвижимости</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- ── Дубль для бесконечного скролла ── -->
-            <div class="t-card" role="article" aria-hidden="true">
-              <div class="t-card__stars">★★★★★</div>
-              <p class="t-card__text">
-                «Андрей — грамотный специалист. Не сорвал сроки, всё подключил,
-                мне не пришлось ни в чём разбираться. Получил готовый сайт,
-                который работает и приносит реальных клиентов.»
-              </p>
-              <div class="t-card__author">
-                <div class="t-card__avatar" style="background: #4F8EF7;" aria-hidden="true">К</div>
-                <div><strong>Константин</strong><span>Онлайн-курс по маркетингу</span></div>
-              </div>
-            </div>
-            <div class="t-card" role="article" aria-hidden="true">
-              <div class="t-card__stars">★★★★★</div>
-              <p class="t-card__text">
-                «Сделал нам лендинг за 5 дней — быстро, чисто, без лишних вопросов.
-                Дизайн понравился сразу, правки внёс моментально. Рекомендую.»
-              </p>
-              <div class="t-card__author">
-                <div class="t-card__avatar" style="background: #00C896;" aria-hidden="true">М</div>
-                <div><strong>Михаил</strong><span>Строительная компания</span></div>
-              </div>
-            </div>
-            <div class="t-card" role="article" aria-hidden="true">
-              <div class="t-card__stars">★★★★★</div>
-              <p class="t-card__text">
-                «Очень понравился подход — сначала разобрался в нашей нише,
-                потом предложил структуру. Сайт выглядит профессионально
-                и уже приносит первые заявки.»
-              </p>
-              <div class="t-card__author">
-                <div class="t-card__avatar" style="background: #FF6B6B;" aria-hidden="true">А</div>
-                <div><strong>Алексей</strong><span>IT-стартап</span></div>
-              </div>
-            </div>
-            <div class="t-card" role="article" aria-hidden="true">
-              <div class="t-card__stars">★★★★★</div>
-              <p class="t-card__text">
-                «Заказывали редизайн старого сайта. Андрей предложил несколько
-                концепций, помог выбрать. Результат превзошёл ожидания —
-                сайт стал выглядеть современно и работать быстро.»
-              </p>
-              <div class="t-card__author">
-                <div class="t-card__avatar" style="background: #A855F7;" aria-hidden="true">Е</div>
-                <div><strong>Елена</strong><span>Юридическая компания</span></div>
-              </div>
-            </div>
-            <div class="t-card" role="article" aria-hidden="true">
-              <div class="t-card__stars">★★★★★</div>
-              <p class="t-card__text">
-                «Вёрстка по нашему макету — сделал всё точно в пиксель.
-                Адаптив работает идеально, код чистый. Будем обращаться ещё.»
-              </p>
-              <div class="t-card__author">
-                <div class="t-card__avatar" style="background: #F59E0B;" aria-hidden="true">Д</div>
-                <div><strong>Дмитрий</strong><span>Агентство недвижимости</span></div>
-              </div>
-            </div>
-
-          </div><!-- /.marquee__track -->
-        </div><!-- /.marquee -->
-
-        <div style="text-align:center; margin-top: 40px;">
-          <a href="https://www.avito.ru/moskva/predlozheniya_uslug/sozdanie_saytov_pod_klyuch_8041492479"
-             target="_blank" rel="noopener noreferrer" class="btn btn-outline">
-            Смотреть профиль на Avito →
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <div class="section-divider" role="separator" aria-hidden="true"></div>
-
-  <!-- ============================================
-       6. FAQ — часто задаваемые вопросы
-       ============================================ -->
-  <section id="faq" class="faq" aria-labelledby="faq-title">
-    <div class="container">
-      <div class="faq__header reveal">
-        <p class="section-label">FAQ</p>
-        <h2 id="faq-title">Часто задаваемые вопросы</h2>
-      </div>
-
-      <div class="faq__list">
-        <div class="faq-item reveal" data-delay="0.1">
-          <button class="faq-item__question" aria-expanded="false">
-            <span>Сколько стоит лендинг?</span>
-            <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-          <div class="faq-item__answer">
-            <p>Лендинг под ключ — от 10 000 ₽. Финальная стоимость зависит от сложности: количество экранов, анимации, интеграции. После брифа я назову точную цену — без скрытых доплат.</p>
-          </div>
-        </div>
-
-        <div class="faq-item reveal" data-delay="0.15">
-          <button class="faq-item__question" aria-expanded="false">
-            <span>Нужна ли предоплата?</span>
-            <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-          <div class="faq-item__answer">
-            <p>Да, предоплата составляет процент от стоимости сайта. Это гарантирует серьёзность намерений обеих сторон. Остаток — после сдачи готового проекта.</p>
-          </div>
-        </div>
-
-        <div class="faq-item reveal" data-delay="0.2">
-          <button class="faq-item__question" aria-expanded="false">
-            <span>Сколько правок включено?</span>
-            <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-          <div class="faq-item__answer">
-            <p>В стоимость входят 2 раунда правок. Этого обычно достаточно — я тщательно прорабатываю проект на этапе согласования, поэтому глобальные переделки случаются редко.</p>
-          </div>
-        </div>
-
-        <div class="faq-item reveal" data-delay="0.25">
-          <button class="faq-item__question" aria-expanded="false">
-            <span>Какие сроки выполнения?</span>
-            <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-          <div class="faq-item__answer">
-            <p>Лендинг — от 5 рабочих дней. Многостраничный сайт — от 14 дней. Точный срок зависит от объёма. Я всегда сдаю в срок — без исключений.</p>
-          </div>
-        </div>
-
-        <div class="faq-item reveal" data-delay="0.3">
-          <button class="faq-item__question" aria-expanded="false">
-            <span>Входит ли домен и хостинг?</span>
-            <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-          <div class="faq-item__answer">
-            <p>SEO-базис и помощь с подключением домена входят в стоимость лендинга. Помогу выбрать хостинг и настроить — вам не придётся разбираться самим.</p>
-          </div>
-        </div>
-
-        <div class="faq-item reveal" data-delay="0.35">
-          <button class="faq-item__question" aria-expanded="false">
-            <span>Есть ли поддержка после запуска?</span>
-            <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-          <div class="faq-item__answer">
-            <p>Да, 7 дней бесплатной поддержки после запуска. Если что-то сломается или нужно поправить — сделаю оперативно. Дальнейшая поддержка обсуждается отдельно.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="section-divider" role="separator" aria-hidden="true"></div>
-
-  <!-- ============================================
-       7. CONTACTS — контакты
-       ============================================ -->
-  <section id="contacts" class="contacts" aria-labelledby="contacts-title">
-    <div class="container">
-      <div class="contacts__inner">
-
-        <!-- Левая колонка: текст + ссылки -->
-        <div class="contacts__content reveal">
-          <p class="section-label">Контакты</p>
-          <h2 id="contacts-title">Готовы начать проект?</h2>
-          <p class="contacts__text">
-            Расскажите о своей задаче — я отвечу в течение нескольких часов
-            и предложу решение. Консультация бесплатна.
-          </p>
-
-          <div class="contacts__links">
-            <!-- Telegram -->
-            <a href="https://t.me/andrworkk" target="_blank" rel="noopener noreferrer"
-               class="contact-link contact-link--primary">
-              <svg class="contact-link__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M21.8 2.4L1.2 10.1c-1.3.5-1.3 1.3-.2 1.6l5.1 1.6 11.8-7.5c.6-.4 1.1-.2.7.3L8.9 16.5l-.3 5.3c.4 0 .6-.2.8-.4l2-1.9 5.2 3.8c1 .5 1.6.3 1.9-.9l3.4-16.1c.4-1.5-.6-2.2-1.9-1.9z" fill="currentColor"/>
-              </svg>
-              <div>
-                <span class="contact-link__label">Telegram</span>
-                <span class="contact-link__value">@andrworkk</span>
-              </div>
-            </a>
-
-            <!-- Email -->
-            <a href="mailto:andrwork@protonmail.com" class="contact-link">
-              <svg class="contact-link__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/>
-                <path d="M2 7l10 7 10-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-              </svg>
-              <div>
-                <span class="contact-link__label">Email</span>
-                <span class="contact-link__value">andrwork@protonmail.com</span>
-              </div>
-            </a>
-
-            <!-- Avito -->
-            <a href="https://www.avito.ru/moskva/predlozheniya_uslug/sozdanie_saytov_pod_klyuch_8041492479"
-               target="_blank" rel="noopener noreferrer" class="contact-link">
-              <svg class="contact-link__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <circle cx="8"  cy="8"  r="3" stroke="currentColor" stroke-width="1.5"/>
-                <circle cx="16" cy="8"  r="3" stroke="currentColor" stroke-width="1.5"/>
-                <circle cx="8"  cy="16" r="3" stroke="currentColor" stroke-width="1.5"/>
-                <rect x="13" y="13" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/>
-              </svg>
-              <div>
-                <span class="contact-link__label">Avito</span>
-                <span class="contact-link__value">Объявление на Avito</span>
-              </div>
-            </a>
-          </div>
-        </div>
-
-        <!-- Правая колонка: форма заявки -->
-        <div class="contacts__form-wrap reveal" data-delay="0.2">
-          <form class="contact-form" id="contactForm" novalidate>
-            <h3 class="contact-form__title">Оставить заявку</h3>
-            <p class="contact-form__subtitle">Заполните форму — я отвечу в течение нескольких часов</p>
-
-            <div class="contact-form__field">
-              <label for="cf-name">Ваше имя</label>
-              <input type="text" id="cf-name" name="name" placeholder="Как к вам обращаться?" required autocomplete="name" />
-            </div>
-
-            <div class="contact-form__field">
-              <label for="cf-contact">Телефон или Telegram</label>
-              <input type="text" id="cf-contact" name="contact" placeholder="+7 900 000-00-00 или @username" required />
-            </div>
-
-            <div class="contact-form__field">
-              <label for="cf-service">Тип услуги</label>
-              <select id="cf-service" name="service" required>
-                <option value="" disabled selected>Выберите услугу</option>
-                <option value="landing">Лендинг под ключ</option>
-                <option value="multipage">Многостраничный сайт</option>
-                <option value="redesign">Редизайн сайта</option>
-                <option value="coding">Вёрстка по макету</option>
-                <option value="consult">Консультация по дизайну</option>
-              </select>
-            </div>
-
-            <div class="contact-form__field">
-              <label for="cf-message">Описание задачи</label>
-              <textarea id="cf-message" name="message" rows="3" placeholder="Кратко опишите, что нужно сделать"></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary contact-form__submit" id="contactFormBtn">
-              Отправить заявку
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-
-            <div class="contact-form__status" id="contactFormStatus" aria-live="polite"></div>
-          </form>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================
-       FOOTER
-       ============================================ -->
-  <footer class="footer" role="contentinfo">
-    <div class="container">
-      <div class="footer__inner">
-        <span class="footer__logo">Андрей<span>.</span></span>
-        <span class="footer__copy">© 2025 · Веб-дизайнер</span>
-        <a href="#hero" class="footer__top">Наверх ↑</a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ============================================
-       СКРИПТЫ
-       ============================================ -->
-  <!-- Three.js — для shader-анимации Hero (v1.2) -->
-  <script src="https://cdn.jsdelivr.net/npm/three@0.148.0/build/three.min.js"></script>
-
-  <script src="js/main.js"           defer></script>
-  <script src="js/tilt.js"           defer></script>
-  <script src="js/filter.js"         defer></script>
-  <script src="js/hero-shader.js"    defer></script>
-  <script src="js/mesh-gradient.js"  defer></script>
-  <script src="js/faq.js"            defer></script>
-  <script src="js/contact-form.js"   defer></script>
-
-</body>
+    <dialog id="project-drawer" class="project-drawer" aria-labelledby="drawer-title" data-drawer>
+      <button class="drawer-close" type="button" aria-label="Закрыть кейс" data-drawer-close><span aria-hidden="true"></span><span aria-hidden="true"></span></button>
+      <div class="project-drawer__content" data-drawer-content></div>
+    </dialog>
+    <script type="module" src="/src/main.js"></script>
+  </body>
 </html>
