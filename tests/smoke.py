@@ -20,11 +20,14 @@ def main():
         desktop = browser.new_page(viewport={"width": 1440, "height": 900})
         desktop.on("pageerror", lambda error: errors.append(str(error)))
         desktop.goto(BASE_URL, wait_until="networkidle")
-        assert desktop.locator("h1").inner_text().startswith("Лендинги под ключ")
+        assert desktop.locator("h1").inner_text().startswith("Веб-дизайнер")
         assert desktop.locator("canvas").count() == 1
         dimensions = desktop.evaluate("""() => ({ scrollWidth: document.documentElement.scrollWidth, clientWidth: document.documentElement.clientWidth })""")
         assert dimensions["scrollWidth"] <= dimensions["clientWidth"] + 1
-        desktop.screenshot(path=str(ARTIFACTS / "desktop-home.png"), full_page=True)
+        desktop.screenshot(path=str(ARTIFACTS / "desktop-hero.png"))
+        desktop.locator("#about").scroll_into_view_if_needed()
+        desktop.wait_for_timeout(500)
+        desktop.screenshot(path=str(ARTIFACTS / "desktop-about.png"))
         desktop.get_by_role("link", name="Смотреть кейс").first.click()
         assert desktop.locator("dialog").evaluate("node => node.open") is True
         assert desktop.url.endswith("#project/ecowood")
@@ -54,7 +57,7 @@ def main():
 
         no_js = browser.new_page(viewport={"width": 1280, "height": 720}, java_script_enabled=False)
         no_js.goto(BASE_URL, wait_until="domcontentloaded")
-        assert no_js.locator("h1").inner_text().startswith("Лендинги под ключ")
+        assert no_js.locator("h1").inner_text().startswith("Веб-дизайнер")
         assert no_js.locator("body").evaluate("node => getComputedStyle(node).opacity") == "1"
         assert "статичный список проектов" in no_js.locator("body").inner_text()
         assert_no_page_errors(errors)

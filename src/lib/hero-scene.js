@@ -56,20 +56,27 @@ export class HeroScene {
   }
 
   createRings() {
-    const palette = [0x2f7cff, 0x6e5cff, 0x27d9ff];
-    this.rings = palette.map((color, index) => {
-      const geometry = new THREE.TorusGeometry(2.35 - index * 0.3, 0.19, 18, 82, Math.PI * (1.15 + index * 0.16));
-      const material = new THREE.MeshPhysicalMaterial({ color, transparent: true, opacity: 0.78, roughness: 0.2, metalness: 0.42, clearcoat: 0.85, clearcoatRoughness: 0.12 });
+    const ribbons = [
+      { color: 0x2174ff, radius: 2.65, tube: 0.25, arc: Math.PI * 1.42, rotation: [0.54, -0.34, -0.78], position: [-0.08, 0.08, 0.1] },
+      { color: 0x20b6ff, radius: 2.12, tube: 0.15, arc: Math.PI * 1.08, rotation: [1.28, 0.64, 0.44], position: [0.12, -0.06, 0.42] },
+      { color: 0x7865ff, radius: 1.66, tube: 0.18, arc: Math.PI * 1.36, rotation: [2.18, -0.42, 0.78], position: [0.02, 0.08, -0.25] }
+    ];
+    this.rings = ribbons.map((ribbon) => {
+      const geometry = new THREE.TorusGeometry(ribbon.radius, ribbon.tube, 20, 120, ribbon.arc);
+      const material = new THREE.MeshPhysicalMaterial({ color: ribbon.color, emissive: ribbon.color, emissiveIntensity: 0.17, transparent: true, opacity: 0.86, roughness: 0.13, metalness: 0.58, clearcoat: 1, clearcoatRoughness: 0.08 });
       const mesh = new THREE.Mesh(geometry, material);
-      mesh.rotation.set(index * 0.78 + 0.2, -index * 0.54, index * 0.54 - 0.5);
-      mesh.position.set((index - 1) * 0.12, (index - 1) * 0.06, index * -0.2);
+      mesh.rotation.set(...ribbon.rotation);
+      mesh.position.set(...ribbon.position);
       this.group.add(mesh);
       return mesh;
     });
-    const light = new THREE.PointLight(0x4acfff, 15, 20, 2);
+    const light = new THREE.PointLight(0x4acfff, 22, 20, 2);
     light.position.set(3, 3, 4);
     this.scene.add(light);
-    this.scene.add(new THREE.AmbientLight(0x6075bf, 1.6));
+    const violetLight = new THREE.PointLight(0x795eff, 11, 16, 2);
+    violetLight.position.set(-3, -2, 3);
+    this.scene.add(violetLight);
+    this.scene.add(new THREE.AmbientLight(0x6075bf, 1.85));
   }
 
   createOrbits() {
@@ -85,11 +92,13 @@ export class HeroScene {
     }
     const nodeGeometry = new THREE.SphereGeometry(0.075, 12, 12);
     const nodeMaterial = new THREE.MeshBasicMaterial({ color: 0xd8f8ff });
-    this.nodes = Array.from({ length: 10 }, (_, index) => {
-      const angle = (Math.PI * 2 * index) / 10;
+    this.nodes = Array.from({ length: 12 }, (_, index) => {
+      const angle = (Math.PI * 2 * index) / 12;
       const node = new THREE.Mesh(nodeGeometry, nodeMaterial.clone());
       node.userData.angle = angle;
-      node.position.set(Math.cos(angle) * 3.35, Math.sin(angle) * 1.75, -0.5);
+      const scale = 0.55 + (index % 4) * 0.24;
+      node.scale.setScalar(scale);
+      node.position.set(Math.cos(angle) * (3.05 + (index % 3) * 0.22), Math.sin(angle) * (1.62 + (index % 2) * 0.22), -0.5);
       this.group.add(node);
       return node;
     });
@@ -144,8 +153,8 @@ export class HeroScene {
     this.orbits.forEach((orbit, index) => { orbit.rotation.z += (index % 2 ? -1 : 1) * 0.0008; });
     this.nodes.forEach((node, index) => {
       const angle = node.userData.angle + elapsed * (0.09 + (index % 3) * 0.015);
-      node.position.x = Math.cos(angle) * 3.35;
-      node.position.y = Math.sin(angle) * 1.75;
+      node.position.x = Math.cos(angle) * (3.05 + (index % 3) * 0.22);
+      node.position.y = Math.sin(angle) * (1.62 + (index % 2) * 0.22);
     });
     this.renderer.render(this.scene, this.camera);
     this.frame = requestAnimationFrame(() => this.render());
