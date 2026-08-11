@@ -1,0 +1,11 @@
+node_modules/
+.venv/
+dist/
+.vercel/
+.env
+.env.*
+!.env.example
+coverage/
+test-results/
+playwright-report/
+*.log
